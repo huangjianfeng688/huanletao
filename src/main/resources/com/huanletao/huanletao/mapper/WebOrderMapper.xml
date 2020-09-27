@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huanletao.huanletao.mapper.WebOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.huanletao.huanletao.entity.WebOrder" >
+    <id column="orderid" property="orderid" jdbcType="INTEGER" />
+    <result column="goodid" property="goodid" jdbcType="INTEGER" />
+    <result column="goodname" property="goodname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="VARCHAR" />
+    <result column="goodid" property="goodid" jdbcType="INTEGER" />
+    <result column="sellerid" property="sellerid" jdbcType="INTEGER" />
+    <result column="sellername" property="sellername" jdbcType="VARCHAR" />
+    <result column="buyername" property="buyername" jdbcType="VARCHAR" />
+    <result column="buyerid" property="buyerid" jdbcType="INTEGER" />
+    <result column="createdate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="CHAR" />
+  </resultMap>
+
+  <!--用户查询有关自己的订单数据，-->
+  <select id="findMyOrders" resultMap="BaseResultMap" parameterType="int">
+   -- 查询订单数据，显示商品名称，价格，卖家，卖家。
+    SELECT myorder3.* ,goodname,price FROM web_good INNER JOIN
+
+    (SELECT myorder2.* ,loginname buyername FROM web_user,
+
+    (SELECT myorder.* , loginname sellername FROM web_user ,
+
+    (SELECT * FROM web_order WHERE buyerid=#{userid} OR sellerid=#{userid}) AS myorder
+
+    WHERE web_user.`userid`=myorder.sellerid
+    ) AS myorder2
+
+    WHERE web_user.`userid`=myorder2.buyerid
+
+    ) AS myorder3
+
+    ON myorder3.goodid=web_good.`goodid`
+
+  </select>
+
+  <!--后台管理员查询所有的订单数据。-->
+  <select id="findOrders" resultMap="BaseResultMap">
+      SELECT tbl_order.*,loginname sellername FROM web_user ,
+  (SELECT tblorder.*,web_user.`loginname` buyername FROM web_user,
+
+  (
+      SELECT orderid,goodname,price,createdate,web_order.status,sellerid,buyerid
+      FROM web_order,web_good
+      WHERE web_order.`goodid`=web_good.`goodid`
+
+    )AS tblorder
+
+   WHERE tblorder.buyerid=web_user.`userid`) AS tbl_order
+
+   WHERE web_user.`userid` = tbl_order.sellerid;
+  </select>
+
+
+
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    orderid, goodid, sellerid, buyerid, createdate, status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.huanletao.huanletao.entity.WebOrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from web_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from web_order
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from web_order
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.huanletao.huanletao.entity.WebOrderExample" >
+    delete from web_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.huanletao.huanletao.entity.WebOrder" >
+    insert into web_order (orderid, goodid, sellerid, 
+      buyerid, createdate, status
+      )
+    values (#{orderid,jdbcType=INTEGER}, #{goodid,jdbcType=INTEGER}, #{sellerid,jdbcType=INTEGER}, 
+      #{buyerid,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huanletao.huanletao.entity.WebOrder" >
+    insert into web_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        orderid,
+      </if>
+      <if test="goodid != null" >
+        goodid,
+      </if>
+      <if test="sellerid != null" >
+        sellerid,
+      </if>
+      <if test="buyerid != null" >
+        buyerid,
+      </if>
+      <if test="createdate != null" >
+        createdate,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="goodid != null" >
+        #{goodid,jdbcType=INTEGER},
+      </if>
+      <if test="sellerid != null" >
+        #{sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="buyerid != null" >
+        #{buyerid,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.huanletao.huanletao.entity.WebOrderExample" resultType="java.lang.Integer" >
+    select count(*) from web_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update web_order
+    <set >
+      <if test="record.orderid != null" >
+        orderid = #{record.orderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodid != null" >
+        goodid = #{record.goodid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellerid != null" >
+        sellerid = #{record.sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyerid != null" >
+        buyerid = #{record.buyerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdate != null" >
+        createdate = #{record.createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update web_order
+    set orderid = #{record.orderid,jdbcType=INTEGER},
+      goodid = #{record.goodid,jdbcType=INTEGER},
+      sellerid = #{record.sellerid,jdbcType=INTEGER},
+      buyerid = #{record.buyerid,jdbcType=INTEGER},
+      createdate = #{record.createdate,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huanletao.huanletao.entity.WebOrder" >
+    update web_order
+    <set >
+      <if test="goodid != null" >
+        goodid = #{goodid,jdbcType=INTEGER},
+      </if>
+      <if test="sellerid != null" >
+        sellerid = #{sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="buyerid != null" >
+        buyerid = #{buyerid,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null" >
+        createdate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+    </set>
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huanletao.huanletao.entity.WebOrder" >
+    update web_order
+    set goodid = #{goodid,jdbcType=INTEGER},
+      sellerid = #{sellerid,jdbcType=INTEGER},
+      buyerid = #{buyerid,jdbcType=INTEGER},
+      createdate = #{createdate,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR}
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </update>
+</mapper>

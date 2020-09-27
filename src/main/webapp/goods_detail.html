@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情-欢乐淘</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/personal.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/services/goodService.js"></script>
+    <script src="/static/js/services/userService.js"></script>
+    <script src="/static/js/services/gooddetailService.js"></script>
+    <script src="/static/js/services/personalService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/goodController.js"></script>
+    <script src="/static/js/controller/GoodDetailController.js"></script>
+
+</head>
+<body ng-app="huanletao" ng-controller="GoodDetailController" ng-init="findDetail();">
+<nav class="navbar navbar-default" style="background: #00e765">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">欢乐淘</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 6px">
+            <li><a href="index.html">首页</a></li>
+            <li ng-if="!isLogin()"><a href="regsiter.html">注册</a></li>
+            <li ng-if="!isLogin()"><a href="login.html">登录</a></li>
+            <li ng-if="isLogin()" ng-click="logout()"><a  href="#">退出</a></li>
+            <li ng-if="isLogin()"><a href="personal.html">个人中心</a></li>
+            <li><a href="/admin/login.html">后台管理</a></li>
+            <li ng-if="isLogin()"><a>当前用户:{{loginuser}}</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!--主要内容-->
+<div class="panel" style="margin-top: 0">
+    <div class="panel-body" style="margin-left: 254px ;margin-top: 0">
+        <div class="row">
+
+        <div class="col-md-4 " id="item" style="border: #00a157 1px solid;
+        height: 365px;background-image: url({{GoodDesc.pictures}}) ;
+        background-repeat: no-repeat; background-size:100% 100%;">
+        </div>
+        <div class="col-md-4" style="border: #00a157 1px solid;height: 365px">
+            <ul class="list-group">
+                <li class="list-group-item">商品名称：<strong>{{GoodDesc.goodname}}</strong> </li>
+                <li  class="list-group-item">
+                    <p>商品描述：
+                             {{GoodDesc.gooddesc}}
+                             </p>
+                </li>
+                <li  class="list-group-item">
+                    <div class="price">
+                        商品价格：
+                             <em>¥</em>
+                            <i>{{GoodDesc.price}}</i>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="address">
+                        商品所在地址：
+                            <i>{{GoodDesc.address}}</i>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="status">
+                        商品状态：
+                        <i>{{descStatus[GoodDesc.status]}}</i>
+                    </div>
+                </li>
+
+            </ul>
+
+            <div ng-if="permission.show">
+                <button class="btn btn-info" ng-click="addMyCollect(GoodDesc.goodid)">收藏</button>
+                <button class="col-lg-offset-1 btn btn-success {{GoodDesc.status==1? 'disabled':''}}"
+                        ng-click="addMyWant(GoodDesc.goodid)">想要</button>
+            </div>
+
+        </div>
+</div>
+
+
+        <!--该商品的评论内容-->
+        <div class="row">
+                <h4 class="text-left text-capitalize ">商品评论</h4>
+
+        </div>
+        <div class="panel-body">
+            <div class="form-group col-md-7 ">
+                <textarea class="form-control col-md-3" ng-model="comment.context" rows="3">
+
+                </textarea>
+                <a href="#" ng-if="permission.show"> <h5 class="text-right text-primary glyphicon
+                 glyphicon-penci" ng-click="reportComment(GoodDesc.goodid)">发表评论</h5>
+                </a>
+            </div>
+        </div>
+
+        <div class="row" ng-repeat="comment in commentList">
+            <h>{{comment.username}}:</h>
+                <p class="col-lg-offset-1">
+                    {{comment.context}}
+                </p>
+
+        </div>
+    </div>
+</div>
+
+
+
+    <!--底部信息、-->
+    <!--这是底部的内容-->
+    <div class=" panel-footer" id="bottom" style="background-color: #0D6AAD;padding-top: 12px">
+        <div class="row">
+            <div class="col-lg-offset-2 col-md-4">
+                <p>联系我们 / contact us </p>
+                <p> Q 群：433981852</p>
+                <p> Q Q：1710350112</p>
+                <p> 地址：广西科技师范学院来宾校区 </p>
+            </div>
+            <div class="col-md-4">
+                <p>| 友情链接 </p>
+                <p> <a href="https://www.51job.com/"> > </a> 前程无忧</p>
+                <p> <a href="https://www.gxbys.com/index.php"> > </a> 广西毕业生就业网</p>
+                <p><a href="http://www.gxstnu.edu.cn/"> > </a>  广西科技师范学院 </p>
+            </div>
+        </div>
+        <!--分隔线-->
+        <hr>
+        <!--版权所有-->
+        <div class="row" >
+            <p class="text-center">版权所有&copy;欢乐淘科技有限公司</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugins/angularjs/pagination.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/pagination.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/base_pagination.js"></script>
+    <script src="/static/js/services/orderService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/myGoodController.js"></script>
+</head>
+<body ng-app="huanletao" ng-controller="myGoodController">
+<div class="container" style="width: 600px;">
+
+    <h3 class="text-left" style="color: #01ff70">我的闲置</h3>
+
+        <table class="table table-condensed table-hover" style="margin-top: 12px">
+            <thead class="text-center">
+                <tr>
+                    <th>序号</th>
+                    <th>商品名称</th>
+                    <th>价格</th>
+                    <th>分类</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+           <tbody>
+
+           <tr ng-repeat="good in myGoods">
+               <td>{{$index+1}}</td>
+               <td>{{good.goodname}}</td>
+               <td>{{good.price}}￥</td>
+               <td>{{good.catename}}</td>
+               <td>{{staus[good.status]}}</td>
+               <td >
+                   <button ng-if="good.status==1" ng-click="showwant(good.goodid)" class="btn btn-success">查看谁想要</button>
+                   <button ng-if="good.status==0" ng-click="deleteGood(good.goodid)" class="btn btn-danger">删除商品</button>
+                   <button ng-if="good.status==2" ng-click="deleteGood(good.goodid)" class="btn btn-danger">删除商品</button>
+               </td>
+
+           </tr>
+
+
+           </tbody>
+
+
+        </table>
+        <tm-pagination conf="paginationConf"></tm-pagination>
+</div>
+</body>
+<!--模态框，添加或者更新广告信息。-->
+<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="exampleModalLabel">买家信息</h3>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>选择</th>
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>就读学校</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="buyer in buyers">
+                            <td>
+                                <input type="checkbox" ng-click="selectBuyer($event,buyer.userid)">
+                            </td>
+                            <td>{{$index+1}}</td>
+                            <td>{{buyer.username}}</td>
+                            <td>{{buyer.college}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" ng-click="subimit()" >生成订单</button>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

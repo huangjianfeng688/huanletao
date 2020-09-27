@@ -1,0 +1,16 @@
+.item-group-title{
+    height: 48px;
+    line-height: 48px;
+    font-size: 19px;
+    padding-left: 28px;
+    color: #b9def0;
+}
+
+.list-group a,.nav li a{
+    color: black;
+    text-decoration: none;
+}
+
+.list-group-item:hover{
+    background-color: #1c7ab3;
+}

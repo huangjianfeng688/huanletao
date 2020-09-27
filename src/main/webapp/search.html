@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品搜索-欢乐淘</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/personal.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/angular-route.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/services/searchService.js"></script>
+    <script src="/static/js/services/userService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/searchController.js"></script>
+</head>
+<style>
+    .item li{
+        padding-left: 34px;
+    }
+
+    .pager ul li a{
+        border-radius: 0px;
+
+    }
+    #goodItem{
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<body ng-app="huanletao" ng-controller="searchController">
+<!--导航栏-->
+<nav class="navbar navbar-default" style="background: #00e765">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">欢乐淘</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 6px">
+            <li><a href="/index.html">首页</a></li>
+            <li ng-if="!isLogin()"><a href="regsiter.html">注册</a></li>
+            <li ng-if="!isLogin()"><a href="login.html">登录</a></li>
+            <li ng-if="isLogin()"><a href="personal.html">个人中心</a></li>
+            <li ng-if="isLogin()" ng-click="logout()"><a  href="#">退出</a></li>
+            <li><a href="admin/login.html">后台管理</a></li>
+            <li ng-if="isLogin()"><a>当前用户:{{loginuser}}</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!--设置一个面板-->
+<div class="panel">
+    <!--主要内容-->
+    <div class="panel-body">
+
+            <div class="row">
+                <div class="col-lg-offset-4 col-lg-4">
+                    <div class="input-group">
+                        <input type="text" ng-model="searchMap.keywords" class="form-control input-lg" placeholder="请输入关键字">
+                        <span class="input-group-btn">
+                        <button class="btn btn-success btn-lg" ng-click="search()" type="button">搜索</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+        <!--搜索条件-->
+        <div class="row" style="margin: 0 124px;margin-top: 12px">
+          <!--第一块查询条件-->
+            <div class="row" style="border: black 1px solid;">
+                <!--分类标题-->
+                <div class="col-md-2" style="background-color: #b9def0;height: 40px;
+              padding: 5px 0">
+                    <strong class="list-group-item-default" style="font-size: 16px;
+                    margin-left: 7px">分类：</strong>
+                </div>
+                <!--具体分类内容-->
+                <div class="col-md-10">
+                    <ul class="list-group list-inline item">
+                        <li class="list-group-item-default glyphicon-text-height">数码产品</li>
+                        <li class="list-group-item-default">书籍教材</li>
+                        <li class="list-group-item-default">衣鞋帽伞</li>
+                        <li class="list-group-item-default ">代步工具</li>
+                        <li class="list-group-item-default">体育健身</li>
+                        <li class="list-group-item-default">家用电器</li>
+                        <li class="list-group-item-default">日常用品</li>
+                        <li class="list-group-item-default">手工设计</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--第二块查询条件-->
+            <div class="row" style="border: black 1px solid;border-top: 0px">
+                <!--价格标题-->
+                <div class="col-md-2" style="padding: 5px 0;background-color: #b9def0; height: 40px;">
+                    <strong style="font-size: 16px;margin-left: 7px">价格：</strong>
+                </div>
+                    <!--具体分类内容-->
+                    <div class="col-md-10">
+                        <ul class="list-group list-inline item">
+                            <li class="list-group-item-default">0 -- 50</li>
+                            <li class="list-group-item-default">50-100</li>
+                            <li class="list-group-item-default">100-200</li>
+                            <li class="list-group-item-default">200-500</li>
+                            <li class="list-group-item-default">500-1000</li>
+                            <li class="list-group-item-default">1000-*</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        <!--搜索出来的商品信息列表-->
+
+        <!--显示二手宝的商品信息-->
+        <div class="row" id="good" style="margin: 23px 124px ">
+
+            <div class="row">
+                <div class="col-sm-2 col-md-3" ng-repeat="good in resultMap.rows">
+                    <div class="thumbnail" style="width:190px;height: 200px ">
+                        <img src="{{good.pictures}}" height="60" width="80"   alt="">
+                        <div class="caption">
+                            <a id="goodItem" href="/goods_detail.html?goodid={{good.id}}">
+                                <h3 ng-bind-html="good.goodname|trustHtml"></h3>
+                            </a>
+                            <div class="price">
+                                <strong>
+                                    <em>¥</em>
+                                    <i>{{good.price}}</i>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!--分页导航-->
+        <div class="pager page-header">
+            <ul>
+                <li><a href="#">上一页</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">下一页</a></li>
+            </ul>
+        </div>
+</div>
+
+
+    <!--底部内容-->
+    <div class="panel-footer" style="height: 220px ;padding: 0 25px;background-color: #0d6aad " >
+        <div class="row" style="padding-top: 12px">
+            <div class="col-lg-offset-2 col-md-4">
+                <p>联系我们 / contact us </p>
+                <p> Q 群：433981852</p>
+                <p> Q Q：1710350112</p>
+                <p> 地址：广西科技师范学院来宾校区 </p>
+            </div>
+            <div class="col-md-4">
+                <p>| 友情链接 </p>
+                <p> <a href="https://www.51job.com/"> > </a> 前程无忧</p>
+                <p> <a href="https://www.gxbys.com/index.php"> > </a> 广西毕业生就业网</p>
+                <p><a href="http://www.gxstnu.edu.cn/"> > </a>  广西科技师范学院 </p>
+            </div>
+        </div>
+        <!--分隔线-->
+        <hr>
+        <div class="row" >
+            <p class="text-center">版权所有 &copy; 欢乐淘科技有限公司</p>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    $(".item>li").addClass("glyphicon-text-height")
+</script>
+</html>

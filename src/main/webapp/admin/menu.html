@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugins/angularjs/pagination.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/services/categoryService.js"></script>
+    <script src="/static/js/services/userService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/categoryController.js"></script>
+</head>
+<body ng-app="huanletao" ng-controller="categoryController" ng-init="findAll()">
+<div  class="container" style="width: 100%;margin-top: 12px">
+    <div class="row">
+        <form action="#" class="form-inline" role="form">
+            <div class="form-group">
+                <a href="#" class="btn btn-success" data-toggle="modal" ng-click="entity={}" data-target="#categoryModal">添加</a>
+                <a href="#" class="btn btn-danger" ng-click="deleteCate()">删除</a>
+            </div>
+        </form>
+
+    </div>
+    <div class="row" style="margin-top: 12px">
+        <table class="table table-condensed table-hover table-bordered text-center">
+            <tr>
+                <th class="text-center">
+                    <input type="checkbox">全选
+                </th>
+                <th class="text-center">序号</th>
+                <th class="text-center">分类名称</th>
+                <th class="text-center">操作</th>
+            </tr>
+            <tr ng-repeat="cate in cateList">
+                <td>
+                    <input type="checkbox" ng-click="updateSelection($event,cate.categoryid)">
+                </td>
+                <td>{{cate.categoryid}}</td>
+                <td>{{cate.catename}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="updateCate(cate)" data-toggle="modal" data-target="#categoryModal">修改</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!--模态框，添加与修改分类信息-->
+<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="categoryModalLabel">分类信息</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="catename" class="control-label col-md-3">分类名称</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.catename" id="catename" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" ng-model="entity.categoryid">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-click="save()">提交保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

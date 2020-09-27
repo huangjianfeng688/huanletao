@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugins/angularjs/pagination.css">
+    <link rel="stylesheet" href="/static/css/register.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/pagination.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/base_pagination.js"></script>
+    <script src="/static/js/services/userService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/userController.js"></script>
+</head>
+<body ng-app="huanletao" ng-controller="userController">
+<nav class="navbar navbar-default" style="background: #00e765">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">欢乐淘</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 6px">
+            <li><a href="index.html">首页</a></li>
+            <li class="active"><a href="regsiter.html">注册</a></li>
+            <li ng-if="!isonline"><a href="login.html">登录</a></li>
+            <li><a href="admin/login.html">后台管理</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="panel bg" style="height: 450px">
+    <div class="col-lg-offset-3 panel-title text-center">
+        <h2>欢乐淘用户注册</h2>
+    </div>
+
+
+<div class="panel panel-body bg">
+
+        <form class="form-horizontal" role="form" >
+            <div class="form-group">
+                <label for="" class="control-label col-md-2">用户昵称：</label>
+                <div class="col-md-6">
+                    <input type="text" ng-model="user.username" class="form-control" placeholder="请输入用户昵称"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="control-label col-md-2">登录账号：</label>
+                <div class="col-md-6">
+                    <input type="text" ng-model="user.loginname" class="form-control" placeholder="例如：zhangsan"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="control-label col-md-2">登录密码：</label>
+                <div class="col-md-6">
+                    <input type="text" ng-model="user.password" class="form-control" placeholder="例如：zhangsan"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="control-label col-md-2">就读大学：</label>
+                <div class="col-md-6">
+                    <input type="text" ng-model="user.college" class="form-control" placeholder="例如：广西大学"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="control-label col-md-2">毕业时间：</label>
+                <div class="col-md-6">
+                    <input type="date" ng-model="user.graduatedate" class="form-control" placeholder="例如：zhangsan"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="control-label col-md-2">性    别：</label>
+                <div class="col-md-6">
+                    <select class="form-control" ng-model="user.sex" ng-options="x for (x, y) in selectOption">
+                    </select>
+                </div>
+            </div>
+
+           <div class="form-group">
+               <input class="col-lg-offset-2 btn btn-success" ng-click="register()" value="提交" style="width: 120px"/>
+               <input class="col-lg-offset-1 btn btn-info" type="reset" value="重置" style="width: 120px"/>
+               
+           </div>
+        </form>
+</div>
+</div>
+</body>
+</html>

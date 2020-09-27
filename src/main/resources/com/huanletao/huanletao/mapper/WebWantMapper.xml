@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huanletao.huanletao.mapper.WebWantMapper" >
+  <resultMap id="BaseResultMap" type="com.huanletao.huanletao.entity.WebWant" >
+    <id column="wantid" property="wantid" jdbcType="INTEGER" />
+    <result column="goodid" property="goodid" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="reply" property="reply" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    wantid, goodid, userid, reply
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.huanletao.huanletao.entity.WebWantExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from web_want
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from web_want
+    where wantid = #{wantid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from web_want
+    where wantid = #{wantid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.huanletao.huanletao.entity.WebWantExample" >
+    delete from web_want
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.huanletao.huanletao.entity.WebWant" >
+    insert into web_want (wantid, goodid, userid, 
+      reply)
+    values (#{wantid,jdbcType=INTEGER}, #{goodid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
+      #{reply,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huanletao.huanletao.entity.WebWant" >
+    insert into web_want
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wantid != null" >
+        wantid,
+      </if>
+      <if test="goodid != null" >
+        goodid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="reply != null" >
+        reply,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wantid != null" >
+        #{wantid,jdbcType=INTEGER},
+      </if>
+      <if test="goodid != null" >
+        #{goodid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="reply != null" >
+        #{reply,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.huanletao.huanletao.entity.WebWantExample" resultType="java.lang.Integer" >
+    select count(*) from web_want
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update web_want
+    <set >
+      <if test="record.wantid != null" >
+        wantid = #{record.wantid,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodid != null" >
+        goodid = #{record.goodid,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.reply != null" >
+        reply = #{record.reply,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update web_want
+    set wantid = #{record.wantid,jdbcType=INTEGER},
+      goodid = #{record.goodid,jdbcType=INTEGER},
+      userid = #{record.userid,jdbcType=INTEGER},
+      reply = #{record.reply,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huanletao.huanletao.entity.WebWant" >
+    update web_want
+    <set >
+      <if test="goodid != null" >
+        goodid = #{goodid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="reply != null" >
+        reply = #{reply,jdbcType=CHAR},
+      </if>
+    </set>
+    where wantid = #{wantid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huanletao.huanletao.entity.WebWant" >
+    update web_want
+    set goodid = #{goodid,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=INTEGER},
+      reply = #{reply,jdbcType=CHAR}
+    where wantid = #{wantid,jdbcType=INTEGER}
+  </update>
+</mapper>

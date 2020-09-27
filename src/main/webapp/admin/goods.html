@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugins/angularjs/pagination.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/pagination.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/base_pagination.js"></script>
+    <script src="/static/js/services/goodService.js"></script>
+    <script src="/static/js/services/userService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/goodController.js"></script>
+</head>
+<body ng-app="huanletao" ng-controller="goodController" ng-init="findAll()">
+<div class="container" style="margin-top: 12px;width: 100%">
+    <form action="#" class="form-inline" role="form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="请输入关键字">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success">搜索</button>
+        </div>
+    </form>
+
+    <table class="table table-condensed table-hover table-bordered text-center" style="margin-top: 12px">
+        <tr>
+            <th><input type="checkbox">全选</th>
+            <th>商品名称</th>
+            <th>价格</th>
+            <th>发布者</th>
+            <th>分类</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        <tr ng-repeat="good in list">
+            <td><input type="checkbox"></td>
+            <td>{{good.goodname}}</td>
+            <td>{{good.price}}￥</td>
+            <td>{{good.username}}</td>
+            <td>{{good.catename}}</td>
+            <td>{{staus[good.status]}}</td>
+            <td>
+                <button ng-click="detail(good.goodid)" class="btn btn-primary">详情</button>
+            </td>
+        </tr>
+
+    </table>
+    <tm-pagination conf="paginationConf"></tm-pagination>
+</div>
+
+
+<!--模态框，商品详情，商品的详细信息。-->
+<div class="modal fade bs-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="exampleModalLabel">商品详细信息如下</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">商品名称：</label>
+                        <div class="col-sm-4">
+                            <p class="form-control-static">{{GoodDesc.goodname}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class=" col-sm-4 control-label">价格：</label>
+                        <div class="col-sm-4">
+                            <p class="form-control-static">￥{{GoodDesc.price}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">图片：</label>
+                        <div class="col-sm-4">
+                            <img src="{{GoodDesc.pictures}}" height="183" width="191" class="img-rounded">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">商品所在地址：</label>
+                        <div class="col-sm-4">
+                            <p class="form-control-static">{{GoodDesc.address}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">商品描述：</label>
+                        <div class="col-sm-4">
+                            <p class="form-control-static">{{GoodDesc.gooddesc}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">数量：</label>
+                        <div class="col-sm-4">
+                            <p class="form-control-static">{{GoodDesc.goodnumber}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">商品状态：</label>
+                        <div class="col-sm-4">
+                            <p class="form-control-static">{{descStatus[GoodDesc.status]}}</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" ng-click="check(GoodDesc.goodid,1)">通过</button>
+                <button type="button" class="btn btn-info" ng-click="check(GoodDesc.goodid,2)">不通过</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

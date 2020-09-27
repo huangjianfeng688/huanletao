@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugins/angularjs/pagination.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/pagination.js"></script>
+    <script src="/static/js/base_Route.js"></script>
+    <script src="/static/js/base_pagination.js"></script>
+    <script src="/static/js/services/personalService.js"></script>
+    <script src="/static/js/controller/personalController.js"></script>
+    <script src="/static/js/controller/myWantController.js"></script>
+</head>
+<body ng-app="huanletao" ng-controller="myWantController">
+
+<div class="container" style="width: 600px;">
+    <h3 style="color: #01ff70">我的想要</h3>
+    <div class="row">
+        <div class="col-sm-6 col-md-4" ng-repeat="want in myWants">
+            <div class="thumbnail" style="width:190px;height: 200px ">
+                <img src="{{want.pictures}}" height="60" width="80" alt="...">
+                <div class="caption">
+                    <h4>{{want.goodname}}</h4>
+                    <div class="price">
+                        <strong>
+                            <em>¥</em>
+                            <i>{{want.price}}</i>
+                        </strong>
+                    </div>
+                    <p>
+                        <a href="#" class="btn btn-info" ng-click="removeWant(want.goodid)" role="button">取消</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+</div>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+</body>
+</html>

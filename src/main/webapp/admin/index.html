@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢乐淘管理后台</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/pagination.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/base_pagination.js"></script>
+    <script src="/static/js/services/adminService.js"></script>
+    <script src="/static/js/services/userService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/adminController.js"></script>
+
+    <style>
+        * {
+            margin: auto 0;
+            padding: 0;
+        }
+        #nav ul li a {
+            color: #000;
+        }
+        #mian{
+            height: 600px !important;
+        }
+        .nav li a {
+            color: #1ab7ea;
+        }
+
+    </style>
+</head>
+<body ng-app="huanletao" ng-controller="adminController" ng-init="showActiveUser()">
+
+<nav id="nav"  class="navbar" style="background-color: #00a65a ;margin-bottom: 0px;border-radius: 0px">
+    <div class="navbar-header ">
+        <a class="navbar-brand " href="#" style="color: black">欢乐淘运营商后台</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 6px">
+        <li><a href="#" style="background-color: #0bc5de">角色:{{activeUser.roleName}}</a></li>
+        <li><a href='#' ng-click="logout()" style="background-color: #8aa4af">退出</a></li>
+        <li><a href="#"></a></li>
+    </ul>
+</nav>
+<!--主体部分-->
+<div class="row">
+    <div class="col-md-2" style="float: left;width: 180px;">
+        <div class="navbar-default navbar-collapse" style="margin-top: 0px ;background-color:#b9def0;height: 600px" id="slider_sub">
+            <ul class="nav" style="padding-top: 10px">
+                <li>
+                    <a href="home.html" target="mainIframe">首页</a>
+                    <a target="mainIframe" ng-repeat="menu in activeUser.sysMenus" href="{{menu.html}}" >{{menu.name}}</a>
+                    <a href="sysUser.html" target="mainIframe">用户管理</a>
+                    <a href="menu.html" target="mainIframe">菜单管理</a>
+                    <a href="role.html" target="mainIframe">角色管理</a>
+                    <!--<a href="Orders.html" target="mainIframe">&nbsp;订单管理</a>-->
+                    <!--<a href="advert.html" target="mainIframe">&nbsp;广告管理</a>-->
+                    <!--<a href="job.html" target="mainIframe">&nbsp;定时任务</a>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--主要显示内容区域-->
+    <div class="col-md-10">
+        <div class=" embed-responsive" id="mian">
+            <iframe class="embed-responsive-item" height="600px" name="mainIframe" src="home.html"></iframe>
+        </div>
+
+        <div>
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.8
+            </div>
+            <strong>Copyright &copy; 2019-2020 <a href="http://www.huanletao.com">欢乐淘科技研发部</a>.</strong> All rights reserved.
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

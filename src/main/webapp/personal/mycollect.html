@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugins/angularjs/pagination.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/pagination.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/base_pagination.js"></script>
+    <script src="/static/js/services/orderService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/mycollectController.js"></script>
+</head>
+<body ng-app="huanletao" ng-controller="myCollectController">
+
+<div class="container" style="width: 600px;">
+
+    <h3 class="text-left" style="color: #01ff70">我的收藏</h3>
+    <div class="row">
+        <div class="col-sm-6 col-md-4" ng-repeat="collect in myCollects">
+            <div class="thumbnail" style="width:190px;height: 200px ">
+                <img src="{{collect.pictures}}" height="60" width="80" alt="...">
+                <div class="caption">
+                    <h4>{{collect.goodname}}</h4>
+                    <div class="price">
+                        <strong>
+                            <em>¥</em>
+                            <i>{{collect.price}}</i>
+                        </strong>
+                    </div>
+                    <p><a href="#" class="btn btn-primary" ng-click="gooddetail(collect.goodid)" role="button">详情</a>
+                        <a href="#" class="btn btn-default"ng-click="removeCollect(collect.goodid)" role="button">移除</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

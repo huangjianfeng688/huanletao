@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/personal.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/angular-route.min.js"></script>
+    <script src="/static/js/base_Route.js"></script>
+    <script src="/static/js/services/categoryService.js"></script>
+    <script src="/static/js/services/categoryService.js"></script>
+    <script src="/static/js/services/userService.js"></script>
+    <script src="/static/js/services/personalService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/personalController.js"></script>
+    <script src="/static/js/controller/userInfoController.js"></script>
+    <script src="/static/js/controller/categoryController.js"></script>
+    <script src="/static/js/controller/releaseController.js"></script>
+    <script src="/static/js/controller/myGoodController.js"></script>
+    <script src="/static/js/controller/myOrderController.js"></script>
+    <script src="/static/js/controller/mycollectController.js"></script>
+    <script src="/static/js/controller/myWantController.js"></script>
+
+</head>
+<body ng-app='huanletao' ng-controller="personalController" ng-init="findUserInfo();">
+<!--导航栏-->
+<nav class="navbar navbar-default" style="background: #00e765;width: 100%">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">欢乐淘</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 6px">
+            <li ><a href="index.html">首页</a></li>
+            <li><a  ng-click="tuichu()" href="#">退出</a></li>
+            <li class="active"><a href="#">个人中心</a></li>
+            <li><a href="admin/login.html">后台管理</a></li>
+            <li ng-if="isLogin()"><a>当前用户:{{loginuser}}</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!--下面的主要内容-->
+<div class="container mian" style="width: 100%;padding: auto 45px ;position: absolute;background-color: #F8F8F9">
+
+    <div class="panel panel-body" id="middle" style="background-color: #F8F8F9">
+        <div class="col-md-offset-2 col-md-8" style="height: 580px;background-color:#FFFFFF">
+            <!--先画左边的栏-->
+            <div class="left col-md-3" style="border-right: #b9def0 2px solid ;height: 580px;" >
+               <div class="item-group-title">
+                   个人中心
+               </div>
+                    <ul class="list-group" style="margin-top: 10px">
+                        <a href="#!/"><li class="list-group-item active" style="width: 196px">我的资料 </li></a>
+                        <a href="#!/goods"> <li class="list-group-item" ng-click="findMyGoods()" style="width: 196px"> 我的闲置</li></a>
+                        <a href="#!/collect"><li class="list-group-item " ng-click="findMyCollect()" style="width: 196px">我的收藏 </li></a>
+                        <a href="#!/order"> <li class="list-group-item " ng-click="findMyOrder()" style="width: 196px">我的订单</li></a>
+                        <a href="#!/release"><li class="list-group-item " ng-click="getAllCategorys()" style="width: 196px">我要发布 </li></a>
+                        <a href="#!/want"><li class="list-group-item " ng-click="findMyWants()"  style="width: 196px"> 我的想要</li></a>
+                    </ul>
+
+            </div>
+            <!--右边的内容栏 border: black 1px solid-->
+            <div class="right col-md-5"  style="height: 580px;width:620px;">
+
+                <div ng-view style="margin-top: 22px"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部内容-->
+    <div class="panel-footer" style="height: 220px ;padding: 0 25px;background-color: #0d6aad " >
+          <div class="row">
+              <div class="col-lg-offset-2 col-md-4">
+                  <p>联系我们 / contact us </p>
+                  <p> Q 群：433981852</p>
+                  <p> Q Q：1710350112</p>
+                  <p> 地址：广西科技师范学院来宾校区 </p>
+              </div>
+              <div class="col-md-4">
+                  <p>| 友情链接 </p>
+                  <p> <a href="https://www.51job.com/"> > </a> 前程无忧</p>
+                  <p> <a href="https://www.gxbys.com/index.php"> > </a> 广西毕业生就业网</p>
+                  <p><a href="http://www.gxstnu.edu.cn/"> > </a>  广西科技师范学院 </p>
+              </div>
+          </div>
+        <!--分隔线-->
+        <hr>
+        <div class="row" >
+             <p class="text-center">版权所有 &copy; 欢乐淘科技有限公司</p>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(".list-group-item ").click(function(){
+        $(".list-group-item ").removeClass("active");
+        $(this).addClass("active");
+    });
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap-table/1.1.4/bootstrap-table.min.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-table/1.1.4/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-table/1.1.4/locale/bootstrap-table-zh-CN.min.js"></script>
+</head>
+<body>
+<table id="table" class="table table-striped table-bordered table-hover table-condensed"></table>
+</body>
+
+<script type="application/javascript">
+    $('#table').bootstrapTable({
+        url: '../task/taskList.do',
+        pagination: true,
+        search: true,
+        columns: [{
+            field: 'jobName',
+            title: '任务名称'
+        }, {
+            field: 'jobGroup',
+            title: '组名'
+        }, {
+            field: 'jobStatus',
+            title: '状态'
+        },{
+            field: 'cronExpression',
+            title: 'cron 表达式'
+        }]
+    })
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huanletao.huanletao.mapper.WebGoodDescMapper" >
+  <resultMap id="BaseResultMap" type="com.huanletao.huanletao.entity.WebGoodDesc" >
+    <id column="goodid" property="goodid" jdbcType="INTEGER" />
+    <result column="goodid" property="id" jdbcType="INTEGER" />
+    <result column="goodname" property="goodname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="pictures" property="pictures" jdbcType="VARCHAR" />
+    <result column="contact" property="contact" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="goodnumber" property="goodnumber" jdbcType="INTEGER" />
+    <result column="old" property="old" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.huanletao.huanletao.entity.WebGoodDesc" extends="BaseResultMap" >
+    <result column="gooddesc" property="gooddesc" jdbcType="LONGVARCHAR" />
+  </resultMap>
+
+  <!--查询通过审核的商品，将审核的商品显示在首页，-->
+  <select id="findPassGood" resultMap="BaseResultMap">
+    SELECT * FROM web_good_desc WHERE EXISTS(
+    SELECT * FROM web_good WHERE web_good.`status`=1
+    AND web_good.`goodid` = web_good_desc.`goodid`
+    ) LIMIT 20;
+  </select>
+
+  <!--查询自己点击想要的商品信息-->
+  <select id="findMyWants" resultMap="BaseResultMap" parameterType="int">
+    -- 查询自己点击想要的商品信息。
+    SELECT * FROM web_good_desc WHERE goodid IN(
+    SELECT goodid FROM web_want WHERE userid=#{userid});
+  </select>
+
+  <!--查询我的收藏的商品-->
+<select id="findMyCollect" resultMap="BaseResultMap" parameterType="int">
+    SELECT * FROM web_good_desc WHERE EXISTS(
+    SELECT * FROM web_collect WHERE userid=#{userid}
+    AND web_good_desc.`goodid`=web_collect.goodid)
+</select>
+
+  <!--根据商品id，查询商品详细信息。-->
+  <select id="findGoodDescById" resultMap="BaseResultMap" parameterType="int">
+       SELECT * FROM web_good_desc WHERE goodid=#{goodid}
+  </select>
+
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    goodid, goodname, price, pictures, address, status, goodnumber
+  </sql>
+  <sql id="Blob_Column_List" >
+    gooddesc
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.huanletao.huanletao.entity.WebGoodDescExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from web_good_desc
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.huanletao.huanletao.entity.WebGoodDescExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from web_good_desc
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from web_good_desc
+    where goodid = #{goodid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from web_good_desc
+    where goodid = #{goodid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.huanletao.huanletao.entity.WebGoodDescExample" >
+    delete from web_good_desc
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.huanletao.huanletao.entity.WebGoodDesc" >
+    insert into web_good_desc (goodid, goodname, price, 
+      pictures, address,
+      status, goodnumber,
+      gooddesc)
+    values (#{goodid,jdbcType=INTEGER}, #{goodname,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{pictures,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+      #{status,jdbcType=CHAR}, #{goodnumber,jdbcType=INTEGER},
+      #{gooddesc,jdbcType=LONGVARCHAR})
+    <selectKey resultType="int" keyProperty="goodid">
+      SELECT LAST_INSERT_ID() AS ID
+    </selectKey>
+  </insert>
+  <insert id="insertSelective" parameterType="com.huanletao.huanletao.entity.WebGoodDesc" >
+    insert into web_good_desc
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodid != null" >
+        goodid,
+      </if>
+      <if test="goodname != null" >
+        goodname,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="pictures != null" >
+        pictures,
+      </if>
+      <if test="contact != null" >
+        contact,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="goodnumber != null" >
+        goodnumber,
+      </if>
+      <if test="old != null" >
+        old,
+      </if>
+      <if test="gooddesc != null" >
+        gooddesc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodid != null" >
+        #{goodid,jdbcType=INTEGER},
+      </if>
+      <if test="goodname != null" >
+        #{goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="pictures != null" >
+        #{pictures,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null" >
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="goodnumber != null" >
+        #{goodnumber,jdbcType=INTEGER},
+      </if>
+      <if test="old != null" >
+        #{old,jdbcType=CHAR},
+      </if>
+      <if test="gooddesc != null" >
+        #{gooddesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.huanletao.huanletao.entity.WebGoodDescExample" resultType="java.lang.Integer" >
+    select count(*) from web_good_desc
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update web_good_desc
+    <set >
+      <if test="record.goodid != null" >
+        goodid = #{record.goodid,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodname != null" >
+        goodname = #{record.goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.pictures != null" >
+        pictures = #{record.pictures,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contact != null" >
+        contact = #{record.contact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.goodnumber != null" >
+        goodnumber = #{record.goodnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.old != null" >
+        old = #{record.old,jdbcType=CHAR},
+      </if>
+      <if test="record.gooddesc != null" >
+        gooddesc = #{record.gooddesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update web_good_desc
+    set goodid = #{record.goodid,jdbcType=INTEGER},
+      goodname = #{record.goodname,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      pictures = #{record.pictures,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      goodnumber = #{record.goodnumber,jdbcType=INTEGER},
+      gooddesc = #{record.gooddesc,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update web_good_desc
+    set goodid = #{record.goodid,jdbcType=INTEGER},
+      goodname = #{record.goodname,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      pictures = #{record.pictures,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=CHAR},
+      goodnumber = #{record.goodnumber,jdbcType=INTEGER},
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huanletao.huanletao.entity.WebGoodDesc" >
+    update web_good_desc
+    <set >
+      <if test="goodname != null" >
+        goodname = #{goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="pictures != null" >
+        pictures = #{pictures,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="goodnumber != null" >
+        goodnumber = #{goodnumber,jdbcType=INTEGER},
+      </if>
+      <if test="gooddesc != null" >
+        gooddesc = #{gooddesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where goodid = #{goodid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.huanletao.huanletao.entity.WebGoodDesc" >
+    update web_good_desc
+    set goodname = #{goodname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      pictures = #{pictures,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      goodnumber = #{goodnumber,jdbcType=INTEGER},
+      gooddesc = #{gooddesc,jdbcType=LONGVARCHAR}
+    where goodid = #{goodid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huanletao.huanletao.entity.WebGoodDesc" >
+    update web_good_desc
+    set goodname = #{goodname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      pictures = #{pictures,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      goodnumber = #{goodnumber,jdbcType=INTEGER}
+    where goodid = #{goodid,jdbcType=INTEGER}
+  </update>
+</mapper>
