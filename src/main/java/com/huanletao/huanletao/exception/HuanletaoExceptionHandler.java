@@ -2,7 +2,9 @@ package com.huanletao.huanletao.exception;
 
 import com.huanletao.huanletao.contants.CommonContants;
 import com.huanletao.huanletao.dto.ResponseObject;
+import com.huanletao.huanletao.tenum.ResponseEnum;
 import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -18,17 +20,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HuanletaoExceptionHandler {
 
     //对自定义异常进行处理
-
     @ResponseBody
     @ExceptionHandler(RuntimeException.class)
-    public ResponseObject error(HuanletaoException e, Model model){
+    public ResponseObject hanle(RuntimeException e, Model model){
         //如果出现异常
-        //IncorrectCredentialsException incorrectCredentialsException = null;
-//        if (incorrectCredentialsException instanceof e){
-//             model.addAttribute("message",e.getMessage());
-//        }
-        //返回到逻辑视图
-        return ResponseObject.fail(CommonContants.FAIL_CODE,e.getMessage());
+        if (e instanceof IncorrectCredentialsException){
+            return ResponseObject.fail(ResponseEnum.PASSWORDERROR);
+        }
+
+        if (e instanceof UnknownAccountException){
+            return ResponseObject.fail(ResponseEnum.ACCOUNTNOTEXISTS);
+        }
+        if(e instanceof HuanletaoException){
+            //其他业务异常
+            return ResponseObject.fail(CommonContants.FAIL_CODE,e.getMessage());
+        }
+       return null;
     }
 
     //登录异常处理器。

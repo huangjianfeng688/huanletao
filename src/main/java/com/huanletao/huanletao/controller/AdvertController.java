@@ -3,9 +3,11 @@ package com.huanletao.huanletao.controller;
 import com.huanletao.huanletao.dto.ResponseObject;
 import com.huanletao.huanletao.entity.WebAdvert;
 import com.huanletao.huanletao.service.api.AdvertService;
+import com.huanletao.huanletao.tenum.ResponseEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.ResponseCache;
 import java.util.List;
 
 /**
@@ -37,14 +39,14 @@ public class AdvertController {
     @PostMapping("save")
     public ResponseObject saveAdvert(@RequestBody WebAdvert advert){
          advertService.saveAdvert(advert);
-         return new ResponseObject(200,"提交成功");
+         return ResponseObject.success(ResponseEnum.SAVESUCCESS);
     }
 
     //删除广告。
     @GetMapping("delete")
     public ResponseObject deleteAdvert(int[] ids){
          advertService.delete(ids);
-         return new ResponseObject(200,"success");
+         return ResponseObject.success(ResponseEnum.DELETESUCCESS);
     }
 
 }

@@ -4,6 +4,7 @@ package com.huanletao.huanletao.controller;
 import com.huanletao.huanletao.dto.ResponseObject;
 import com.huanletao.huanletao.entity.*;
 import com.huanletao.huanletao.service.api.*;
+import com.huanletao.huanletao.tenum.ResponseEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,7 +46,7 @@ public class PersonalController {
     @PostMapping("update")
     public ResponseObject updateUser(@RequestBody WebUser user){
         userServices.updateUser(user);
-        return new ResponseObject(200,"success,修改成功");
+        return ResponseObject.success(ResponseEnum.UPDATESUCCESS);
     }
 
     //查找我的商品信息。
@@ -61,14 +62,14 @@ public class PersonalController {
 
         WebUser webUser = (WebUser) session.getAttribute(username);
         personalService.addGood(webGoodDesc,webUser.getLoginname());
-        return new ResponseObject(200,"商品发布成功");
+        return ResponseObject.success(ResponseEnum.SAVESUCCESS);
     }
 
     //删除商品信息。
     @GetMapping("deleteGood")
     public ResponseObject deleteGood(int goodid){
         personalService.deleteGood(goodid);
-        return new ResponseObject(200,"success");
+        return ResponseObject.success(ResponseEnum.DELETESUCCESS);
     }
 
     //查询买家
@@ -82,7 +83,7 @@ public class PersonalController {
     public ResponseObject generateOrder(@RequestBody WebOrder webOrder){
 
         personalService.generateOrder(webOrder);
-        return new ResponseObject(200,"success");
+        return ResponseObject.success(ResponseEnum.OK);
     }
 
     //查询我的订单数据
@@ -96,7 +97,7 @@ public class PersonalController {
     @GetMapping("updateOrder")
     public ResponseObject updateOrder(int orderid, int status){
         orderService.updateOrder(orderid,status);
-        return new ResponseObject(200,"success");
+        return ResponseObject.success(ResponseEnum.UPDATESUCCESS);
     }
 
     //查询我的收藏商品
@@ -110,7 +111,7 @@ public class PersonalController {
     @GetMapping("removeCollect")
     public ResponseObject removeCollect(int goodid){
         collectService.removeCollect(goodid);
-        return new ResponseObject(200,"success");
+        return ResponseObject.success(ResponseEnum.DELETESUCCESS);
     }
 
     //查询商品信息。
@@ -126,7 +127,7 @@ public class PersonalController {
     public ResponseObject removeWant(int goodid){
         String username = (String) session.getAttribute("onlineUser");
         wantService.removeWant(goodid,username);
-        return new ResponseObject(200,"success");
+        return  ResponseObject.success(ResponseEnum.OK);
     }
 
 }

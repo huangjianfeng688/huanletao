@@ -4,6 +4,7 @@ package com.huanletao.huanletao.controller;
 import com.huanletao.huanletao.dto.ResponseObject;
 import com.huanletao.huanletao.entity.WebOrder;
 import com.huanletao.huanletao.service.api.OrderService;
+import com.huanletao.huanletao.tenum.ResponseEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,7 @@ public class OrderController {
     @GetMapping("delete")
     public ResponseObject deleteOrder(int[] ids){
         orderService.deleteOrder(ids);
-        return new ResponseObject(200,"订单删除成功");
+        return ResponseObject.success(ResponseEnum.DELETESUCCESS);
     }
 
 }

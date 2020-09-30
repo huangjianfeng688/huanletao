@@ -1,10 +1,12 @@
 package com.huanletao.huanletao.controller;
 
 import com.huanletao.huanletao.common.TaskUtils;
+import com.huanletao.huanletao.contants.CommonContants;
 import com.huanletao.huanletao.dto.ResponseObject;
 import com.huanletao.huanletao.dto.RetObj;
 import com.huanletao.huanletao.entity.ScheduleJob;
 import com.huanletao.huanletao.task.service.JobTaskService;
+import com.huanletao.huanletao.tenum.ResponseEnum;
 import org.apache.log4j.Logger;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.SchedulerException;
@@ -57,15 +59,11 @@ public class JobTaskController {
 	 */
 	@ResponseBody
 	@DeleteMapping("delete/{id}")
-	public ResponseObject deleteJob(@PathVariable int id){
-		try {
-			taskService.deleJob(id);
-			return ResponseObject.success(2000,"删除任务成功");
-		} catch (SchedulerException e) {
-			e.printStackTrace();
-			log.error("删除任务失败。========================");
-			return ResponseObject.fail(4000,"删除任务失败");
-		}
+	public ResponseObject deleteJob(@PathVariable int id) throws SchedulerException {
+
+		taskService.deleJob(id);
+		return ResponseObject.success(ResponseEnum.DELETESUCCESS);
+
 	}
 
 	/**
@@ -80,10 +78,10 @@ public class JobTaskController {
 		retObj.setFlag(false);
 		try {
 			taskService.updateJob(scheduleJob);
-			return ResponseObject.success(2000,"更新任务成功");
+			return ResponseObject.success(CommonContants.SUCCESS_CODE,"更新任务成功");
 		} catch (SchedulerException e) {
 			log.error("更新任务失败");
-			return ResponseObject.fail(4000,"更新任务失败");
+			return ResponseObject.fail(CommonContants.FAIL_CODE,"更新任务失败");
 		}
 
 	}
@@ -101,11 +99,11 @@ public class JobTaskController {
 		retObj.setFlag(false);
 		try {
 			taskService.changeStatus(jobId,cmd);
-			return ResponseObject.success(2000,"更新任务状态成功");
+			return ResponseObject.success(CommonContants.SUCCESS_CODE,"更新任务状态成功");
 		} catch (SchedulerException e) {
 			e.printStackTrace();
 			log.error("更新状态失败");
-			return ResponseObject.fail(4000,"更新任务状态失败");
+			return ResponseObject.fail(CommonContants.FAIL_CODE,"更新任务状态失败");
 		}
 	}
 
@@ -119,10 +117,10 @@ public class JobTaskController {
 	public ResponseObject runingOnce(String jobId){
 		try {
 			taskService.runOnce(jobId);
-			return ResponseObject.success(2000,"执行成功");
+			return ResponseObject.success(ResponseEnum.OK);
 		} catch (SchedulerException e) {
 			log.error("执行失败。");
-			return ResponseObject.fail(4000,"执行失败");
+			return ResponseObject.fail(ResponseEnum.Fail);
 		}
 
 	}

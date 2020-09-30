@@ -9,8 +9,6 @@ import com.huanletao.huanletao.util.MD5Utils;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.*;
@@ -41,15 +39,7 @@ public class AdminController {
          Subject subject = SecurityUtils.getSubject();
          String pwd = MD5Utils.MD5Encode(password);
          AuthenticationToken token = new UsernamePasswordToken(username,pwd);
-         try {
-             subject.login(token);
-         }catch (UnknownAccountException unknownAccountException){
-             logger.warn("用户不存在");
-             return ResponseObject.fail(ResponseEnum.ACCOUNTNOTEXISTS);
-         }catch (IncorrectCredentialsException in){
-             logger.warn("密码不正确");
-             return ResponseObject.fail(ResponseEnum.PASSWORDERROR);
-         }
+         subject.login(token);
          ActiveUser activeUser = (ActiveUser) subject.getPrincipal();
          return ResponseObject.success(ResponseEnum.LOGINSUCCESS).setData(activeUser);
      }
@@ -80,7 +70,8 @@ public class AdminController {
     //新增一个系统用户
     @PostMapping("add")
     public ResponseObject addSysUser(@RequestBody SysUser sysUser){
-         sysUserService.addSysUser(sysUser);
+
+        sysUserService.addSysUser(sysUser);
          return ResponseObject.success(ResponseEnum.SAVESUCCESS);
     }
 

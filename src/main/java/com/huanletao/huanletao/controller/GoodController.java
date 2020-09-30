@@ -4,6 +4,7 @@ import com.huanletao.huanletao.entity.WebGood;
 import com.huanletao.huanletao.entity.WebGoodDesc;
 import com.huanletao.huanletao.service.api.GoodServices;
 import com.huanletao.huanletao.dto.ResponseObject;
+import com.huanletao.huanletao.tenum.ResponseEnum;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,15 +45,12 @@ public class GoodController {
      public ResponseObject check(int goodid, String status){
           //审核商品信息
           goodServices.checkGood(goodid,status);
-
-          return new ResponseObject(200,"success");
-
+          return ResponseObject.success(ResponseEnum.OK);
      }
 
      //显示商品信息在首页。
      @GetMapping("showGood")
      public List<WebGoodDesc> showGood(){
-         log.info("--------------查询商品详细信息------------");
           return goodServices.showGood();
      }
 

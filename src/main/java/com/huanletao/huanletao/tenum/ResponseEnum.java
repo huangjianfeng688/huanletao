@@ -30,7 +30,10 @@ public enum ResponseEnum {
     UPDATESUCCESS(CommonContants.SUCCESS_CODE,"更新成功"),
     UPDATEFAIL(CommonContants.FAIL_CODE,"更新失败"),
 
-    UPLOADSUCCESS(CommonContants.SUCCESS_CODE,"上传成功");
+    UPLOADSUCCESS(CommonContants.SUCCESS_CODE,"上传成功"),
+
+    OK(CommonContants.SUCCESS_CODE,"操作成功"),
+    Fail(CommonContants.FAIL_CODE,"操作失败");
 
     private Integer code;
     private String message;

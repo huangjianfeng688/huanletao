@@ -8,6 +8,7 @@ import com.huanletao.huanletao.service.api.CommentService;
 import com.huanletao.huanletao.service.api.UserServices;
 import com.huanletao.huanletao.service.api.WantService;
 
+import com.huanletao.huanletao.tenum.ResponseEnum;
 import com.huanletao.huanletao.util.MailUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,6 @@ public class GoodDetailController {
      @GetMapping("addWant")
     public ResponseObject addMyWant(int goodid, String username) throws GeneralSecurityException, MessagingException {
 
-         logger.info("username = " + username);
          WebUser webUser = (WebUser) session.getAttribute(username);
          wantService.save(goodid,webUser.getLoginname());
 
@@ -56,7 +56,7 @@ public class GoodDetailController {
          MailUtils.sendSimpleMail(seller.getLoginname(),context);
          logger.info("已经发送邮箱通知宝贝主人 ---》"+seller.getUsername());
 
-        return new ResponseObject(200,"添加想要成功");
+        return ResponseObject.success(ResponseEnum.SAVESUCCESS);
      }
 
      //用户添加收藏商品，
@@ -64,13 +64,13 @@ public class GoodDetailController {
     public ResponseObject addCollect(int goodid, String username){
         WebUser webUser = (WebUser) session.getAttribute(username);
          collectService.save(goodid,webUser.getLoginname());
-         return new ResponseObject(200,"收藏成功");
+         return ResponseObject.success(ResponseEnum.SAVESUCCESS);
     }
 
     //显示商品的评论信息。
     @GetMapping("showComment")
     public List<WebComment> showComment(int goodid){
-      logger.info("查询商品所有评论信息================");
+        logger.info("查询商品所有评论信息================");
         return commentService.findCommentByGood(goodid);
     }
 
@@ -78,6 +78,6 @@ public class GoodDetailController {
     public ResponseObject reportComment(@RequestBody WebComment webComment , String username){
         WebUser webUser = (WebUser) session.getAttribute(username);
          commentService.save(webComment,webUser.getLoginname());
-         return new ResponseObject(200,"success");
+         return ResponseObject.success(ResponseEnum.OK);
     }
 }
