@@ -5,6 +5,7 @@ import com.aliyuncs.exceptions.ClientException;
 import com.huanletao.huanletao.dto.ResponseObject;
 import com.huanletao.huanletao.entity.WebUser;
 import com.huanletao.huanletao.service.api.UserServices;
+import com.huanletao.huanletao.tenum.ResponseEnum;
 import com.huanletao.huanletao.util.SmsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -94,16 +95,16 @@ public class UserController {
     public ResponseObject userlogin(String username, String password){
         //通过用户名和密码，查询一个用户信息。
         WebUser user = userServices.userLogin(username,password);
-        if (user==null){
+        if ( user == null ){
             //查询不到。登录失败。
-           return new ResponseObject(4000,"用户名或者密码错误");
-        }else{
-            //将用户登录的信息存到session中。保存在服务端。
-            session.setAttribute(username,user);
-
-            //返回登录成功信息。
-          return   new ResponseObject(user.getUserid(),"success");
+           return ResponseObject.fail(ResponseEnum.PASSWORDERROR);
         }
+
+        //将用户登录的信息存到session中。保存在服务端。
+        session.setAttribute(username,user);
+        //返回登录成功信息。
+        return  ResponseObject.success(ResponseEnum.LOGINSUCCESS).setData(user);
+
     }
 
     //用户登出的方法。

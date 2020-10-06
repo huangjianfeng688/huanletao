@@ -68,6 +68,10 @@ app.controller('userController' ,function($scope,$rootScope,$controller,userServ
     $scope.login = function () {
         userService.userlogin($scope.username,$scope.password).then(function (value) {
             //登录失败的情况，显示提示信息。
+
+            console.log(value)
+            console.log(value.data.statusCode)
+
             if (value.data.statusCode == 4000) {
                 $scope.loginmsg = value.data.message;
             }else{

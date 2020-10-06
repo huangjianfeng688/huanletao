@@ -16,6 +16,12 @@
     <script src="/static/js/controller/searchController.js"></script>
 </head>
 <style>
+    body{
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    
     .item li{
         padding-left: 34px;
     }
@@ -27,6 +33,12 @@
     #goodItem{
         text-decoration: none;
         color: black;
+    }
+    .mfooter{
+        background-color: green;
+        position: absolute;
+        bottom: 0;
+        width: 1400px;
     }
 </style>
 <body ng-app="huanletao" ng-controller="searchController">
@@ -154,7 +166,7 @@
 
 
     <!--底部内容-->
-    <div class="panel-footer" style="height: 220px ;padding: 0 25px;background-color: #0d6aad " >
+    <div class="panel-footer mfooter" >
         <div class="row" style="padding-top: 12px">
             <div class="col-lg-offset-2 col-md-4">
                 <p>联系我们 / contact us </p>

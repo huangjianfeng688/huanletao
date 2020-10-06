@@ -94,6 +94,7 @@
                 /search.html = anon
                 /regsiter.html = anon
                 /login.html = anon
+                /personal.html = anon
                 /item/search.do = anon
                 <!--拦截-->
                 /admin/index.html = authc
