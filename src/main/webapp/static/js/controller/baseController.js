@@ -73,5 +73,20 @@ app.controller('baseController' ,function($scope,userService){
 
     }
 
+    //弹窗的控件封装。
+    messge = function (message,icon) {
+        swal({
+            title:'',
+            text:message,
+            icon: icon==undefined? "success":icon
+        })
+    };
+    responseInfo = function (response) {
+        swal({
+            title:'',
+            text:response.message,
+            icon:response.statusCode == 2000 ? "success":"error"
+        });
+    }
 
 });

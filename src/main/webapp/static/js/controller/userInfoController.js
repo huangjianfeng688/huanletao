@@ -8,13 +8,14 @@ app.controller('userInfoController', function ($scope, $route,$controller,person
     $scope.changeAvatar = function () {
         personalService.upload('avatar').then(function (value) {
             $scope.entity.headimage = value.data.msg;
+            messge("更换头像成功","success");
         })
     }
 
     //保存到后台数据库，更换生效。
     $scope.changUserInfo = function () {
         personalService.updateUser($scope.entity).then(function (value) {
-            alert("修改成功");
+          messge("修改成功",'success');
         })
     }
 

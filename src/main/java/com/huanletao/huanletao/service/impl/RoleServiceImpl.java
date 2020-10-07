@@ -24,7 +24,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public List<SysRole> findAll() {
-        return sysRoleMapper.selectByExample(null);
+        return sysRoleMapper.listSysRolePermissions();
     }
 
     @Override

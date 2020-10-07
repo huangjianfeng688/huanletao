@@ -19,7 +19,7 @@ app.controller('userController' ,function($scope,$rootScope,$controller,userServ
 	//选择用户，进行删除功能，
 	$scope.deleteUser = function () {
 		userService.deleteUser($scope.selectIds).success(function (response) {
-			alert(response.message);
+			messge(response.message,"success");
             $scope.findAll();
         })
     }
@@ -48,7 +48,7 @@ app.controller('userController' ,function($scope,$rootScope,$controller,userServ
             $scope.msg='';
             //发送短信验证码
             userService.sendCode($scope.user.phone).then(function (value) {
-                alert(value.data.message);
+                messge(value.data.message,"success");
 
 			})
         }
@@ -57,7 +57,7 @@ app.controller('userController' ,function($scope,$rootScope,$controller,userServ
     //新用户注册功能。
     $scope.register = function () {
         userService.saveUser($scope.user).then(function (response) {
-            alert(response.data.message);
+            messge(response.data.message,"success");
             $scope.user={};
         })
     }
@@ -68,12 +68,9 @@ app.controller('userController' ,function($scope,$rootScope,$controller,userServ
     $scope.login = function () {
         userService.userlogin($scope.username,$scope.password).then(function (value) {
             //登录失败的情况，显示提示信息。
-
-            console.log(value)
-            console.log(value.data.statusCode)
-
             if (value.data.statusCode == 4000) {
                 $scope.loginmsg = value.data.message;
+
             }else{
                 //保存用户信息，
                 $scope.saveSession($scope.username);

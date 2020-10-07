@@ -27,6 +27,7 @@ app.controller('goodController' ,function($scope,$location,$controller,goodServi
 	$scope.check = function (goodid,status) {
 		goodService.check(goodid,status).then(function (response) {
             $("#exampleModal").modal("hide");
+            responseInfo(response);
             location.reload();
         })
     }

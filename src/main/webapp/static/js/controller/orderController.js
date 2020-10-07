@@ -16,7 +16,7 @@ app.controller('orderController' ,function($scope,$controller,orderService){
 	//管理员删除订单数据，
 	$scope.deleteOrder = function () {
 		orderService.deleteOrder($scope.selectIds).then(function (value) {
-			alert(value.data.message);
+			messge(value.data.message);
 			$scope.findAll();
 		})
     }

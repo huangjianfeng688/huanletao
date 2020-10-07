@@ -4,6 +4,7 @@ import com.huanletao.huanletao.dto.ResponseObject;
 import com.huanletao.huanletao.entity.SysRole;
 import com.huanletao.huanletao.service.api.RoleService;
 import com.huanletao.huanletao.tenum.ResponseEnum;
+import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,10 +26,12 @@ public class RoleController {
     @Resource
     private RoleService roleService;
 
+    private static final Logger logger = Logger.getLogger(RoleController.class);
+
     @GetMapping("findAll")
     public ResponseObject findAllRole(){
         List<SysRole> roles = roleService.findAll();
-
+        logger.info("查询结果为：=="+roles);
         return ResponseObject.success(ResponseEnum.SELECTSUCCESS).setData(roles);
     }
 

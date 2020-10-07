@@ -13,7 +13,7 @@ app.controller('loginController' ,function($scope,$controller,adminService){
                   location.href="/admin/index.html";
                   return
               }
-              alert(value.data.message);
+              messge(value.data.message);
           })
       }
 });

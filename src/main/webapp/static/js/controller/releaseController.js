@@ -8,7 +8,7 @@ app.controller('releaseController', function ($scope, $route,$controller,$locati
     //将数据发送到后台。
     $scope.release = function () {
         personalService.addMyGood($scope.GoodDesc,$scope.loginuser).then(function (value) {
-            alert(value.data.message);
+            messge(value.data.message);
         })
     };
 

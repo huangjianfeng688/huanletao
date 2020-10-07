@@ -9,12 +9,12 @@
     <script src="/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="/static/plugins/angularjs/angular.min.js"></script>
     <script src="/static/js/base.js"></script>
-    <script src="/static/js/services/categoryService.js"></script>
+    <script src="/static/js/services/menuService.js"></script>
     <script src="/static/js/services/userService.js"></script>
     <script src="/static/js/controller/baseController.js"></script>
-    <script src="/static/js/controller/categoryController.js"></script>
+    <script src="/static/js/controller/menuController.js"></script>
 </head>
-<body ng-app="huanletao" ng-controller="categoryController" ng-init="findAll()">
+<body ng-app="huanletao" ng-controller="menuController" ng-init="findAll()">
 <div  class="container" style="width: 100%;margin-top: 12px">
     <div class="row">
         <form action="#" class="form-inline" role="form">
@@ -32,17 +32,21 @@
                     <input type="checkbox">全选
                 </th>
                 <th class="text-center">序号</th>
-                <th class="text-center">分类名称</th>
+                <th class="text-center">菜单名称</th>
+                <th class="text-center">页面名称</th>
+                <th class="text-center">类型</th>
                 <th class="text-center">操作</th>
             </tr>
-            <tr ng-repeat="cate in cateList">
+            <tr ng-repeat="menu in menuList">
                 <td>
-                    <input type="checkbox" ng-click="updateSelection($event,cate.categoryid)">
+                    <input type="checkbox" ng-click="updateSelection($event,menu.id)">
                 </td>
-                <td>{{cate.categoryid}}</td>
-                <td>{{cate.catename}}</td>
+                <td>{{menu.id}}</td>
+                <td>{{menu.name}}</td>
+                <td>{{menu.html}}</td>
+                <td>{{type[menu.type]}}</td>
                 <td>
-                    <button class="btn btn-primary" ng-click="updateCate(cate)" data-toggle="modal" data-target="#categoryModal">修改</button>
+                    <button class="btn btn-primary" ng-click="updateMenu(menu)" data-toggle="modal" data-target="#categoryModal">修改</button>
                 </td>
             </tr>
         </table>
@@ -60,13 +64,28 @@
             <div class="modal-body">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label for="catename" class="control-label col-md-3">分类名称</label>
+                        <label for="catename" class="control-label col-md-3">菜单名称</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" ng-model="entity.catename" id="catename" placeholder="请输入分类名称">
+                            <input type="text" class="form-control" ng-model="entity.name" id="catename">
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="hidden" ng-model="entity.categoryid">
+                        <label for="catename" class="control-label col-md-3">页面名称</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.html" id="catename">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="catename" class="control-label col-md-3">类型</label>
+                        <div class="col-md-6">
+                            <select class="form-control" ng-model="entity.type" id="catename" >
+                                <option value="1">页签</option>
+                                <option value="2">新窗口</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" ng-model="entity.id">
                     </div>
                 </form>
             </div>

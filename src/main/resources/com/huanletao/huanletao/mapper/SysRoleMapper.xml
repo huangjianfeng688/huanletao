@@ -4,7 +4,30 @@
   <resultMap id="BaseResultMap" type="com.huanletao.huanletao.entity.SysRole" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <collection property="sysMenuList" ofType="com.huanletao.huanletao.entity.SysMenu">
+          <id column="menu_id" property="id" jdbcType="INTEGER" />
+          <result column="name" property="name" jdbcType="VARCHAR" />
+          <result column="html" property="html" jdbcType="VARCHAR" />
+          <result column="type" property="type" jdbcType="VARCHAR" />
+    </collection>
   </resultMap>
+
+
+  <select id="listSysRolePermissions" resultMap="BaseResultMap">
+      -- 查询角色拥有的菜单列表。
+      SELECT
+        t1.id,
+        t1.role_name,
+        t3.id  menu_id,
+        t3.name,
+        t3.html
+      FROM
+          sys_role AS t1
+      LEFT JOIN sys_role_menu AS t2 ON t1.id = t2.role_id
+      LEFT JOIN sys_menu AS t3 ON t2.menu_id = t3.id
+  </select>
+
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

@@ -9,7 +9,6 @@ app.controller('myOrderController', function ($scope, $route,$controller,persona
 
     //修改订单状态。
     $scope.updateOrderStatus = function (orderid,status) {
-        console.log(orderid,status)
         personalService.updateOrderStatus(orderid,status).then(function (value) {
             $scope.findMyOrder();
         })

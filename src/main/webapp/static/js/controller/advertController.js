@@ -26,7 +26,6 @@ app.controller('advertController' ,function($scope,$controller,advertService){
     $scope.upload = function () {
         advertService.upload().then(function (value) {
            $scope.entity.picaddress = value.data.msg;
-           console.log(value.data.msg)
         })
     }
 
@@ -35,6 +34,7 @@ app.controller('advertController' ,function($scope,$controller,advertService){
         advertService.save($scope.entity).then(function (value) {
             //关闭模态框。回显数据，
             $("#advertModal").modal("hide");
+            messge("操作成功");
             //回显数据。
             $scope.findAll();
         })
@@ -44,7 +44,9 @@ app.controller('advertController' ,function($scope,$controller,advertService){
     $scope.deleteAdvert = function () {
         advertService.deleAdvert($scope.selectIds).then(function (value) {
             //回显数据。
+            messge("删除成功");
             $scope.findAll();
+
         })
     }
 

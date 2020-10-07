@@ -19,7 +19,7 @@ app.controller('categoryController' ,function($scope,$controller,categoryService
 	$scope.save = function () {
 		$("#categoryModal").modal("hide");
 		categoryService.save($scope.entity).then(function (response) {
-			alert(response.message);
+            responseInfo(response);
             $scope.findAll();
         })
     }
@@ -28,7 +28,7 @@ app.controller('categoryController' ,function($scope,$controller,categoryService
 	$scope.deleteCate = function () {
 		categoryService.deleteCate($scope.selectIds).then(function (response) {
 			$scope.findAll();
-			alert(response.message);
+            responseInfo(response);
         })
     }
 

@@ -13,6 +13,7 @@ app.controller('myCollectController', function ($scope,$location,$route,$control
     $scope.removeCollect = function (goodid) {
         personalService.removeCollect(goodid).then(function (value) {
             $scope.findMyCollect();
+            responseInfo(value)
         })
     }
 })

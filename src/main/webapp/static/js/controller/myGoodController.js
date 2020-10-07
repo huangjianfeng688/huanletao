@@ -43,16 +43,16 @@ app.controller('myGoodController', function ($scope, $route,$controller,personal
     //提交订单数据到后台。
     $scope.subimit = function () {
         if ($scope.buyerids.length == 0){
-            alert("必须选中一个买家才能生成订单")
+            messge("必须选中一个买家才能生成订单","warning")
         }
         if ($scope.buyerids.length > 1){
-            alert("只能选中一个买家生成订单数据")
+            messge("只能选中一个买家生成订单数据","warning")
         }
         if ($scope.buyerids.length == 1) {
             $("#myModal").modal("hide");
             $scope.orderdata.buyerid= $scope.buyerids[0];
             personalService.generateOrder($scope.orderdata).then(function (value) {
-                alert("生成订单数据成功。");
+                messge("生成订单数据成功");
             })
         }
     }

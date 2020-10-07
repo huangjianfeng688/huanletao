@@ -20,7 +20,7 @@ app.controller('jobController' ,function($scope,$controller,jobService){
 	$scope.save = function () {
 		$("#jobModal").modal("hide");
 		jobService.save($scope.entity).then(function (response) {
-			alert(response.message);
+			messge(response.message);
             $scope.findAll();
         })
     }
@@ -29,7 +29,7 @@ app.controller('jobController' ,function($scope,$controller,jobService){
 	$scope.deleteJob = function () {
 		jobService.deleJob($scope.selectIds).then(function (response) {
 			$scope.findAll();
-			alert(response.message);
+			messge(response.message);
         })
     }
 
@@ -37,7 +37,7 @@ app.controller('jobController' ,function($scope,$controller,jobService){
 	$scope.updateJob = function (job) {
 		jobService.updateJob(job).then(function (response) {
             $scope.findAll();
-            alert(response.message);
+            messge(response.message);
         })
     }
 

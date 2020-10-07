@@ -22,14 +22,14 @@ app.controller('GoodDetailController' ,function($scope,$location,$controller,goo
     //用户添加我想要，
     $scope.addMyWant = function (goodid) {
         gooddetailService.addMyWant(goodid,$scope.loginuser ).then(function (value) {
-           alert(value.data.message);
+           messge(value.data.message);
         })
     }
 
     //用户添加收藏。
     $scope.addMyCollect = function (goodid) {
         gooddetailService.addMyCollect(goodid,$scope.loginuser ).then(function (value) {
-            alert(value.data.message);
+            messge(value.data.message);
         })
     }
 
