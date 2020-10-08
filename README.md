@@ -27,17 +27,20 @@
 数据库：MySQL
 开发环境与工具：IDEA+MAVEN
 
+业务管理员：admin/123456
+系统管理员：root/123456
+
 
 ###  **后台管理系统 **
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0821/095643_4a12e897_5362924.png "屏幕截图.png")
-
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1008/183522_f85589b1_5362924.png "屏幕截图.png")
  
+系统管理员：主要是涉及系统的管理，权限，用户，定时任务，菜单，邮箱
+!![输入图片说明](https://images.gitee.com/uploads/images/2020/1008/183555_56d0b3af_5362924.png "屏幕截图.png")
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0117/001819_cc11a052_5362924.png "后台管理.png")
- **后台管理，主要对商品进行管理，订单管理，用户管理，广告管理，商品审核等，对平台进行管理。** 
+业务管理员：主要涉及业务方面的管理，商品管理，订单管理，分类管理，广告管理
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1008/183720_feddd93c_5362924.png "屏幕截图.png")
 
-### 定时任务
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0925/131504_ecd7e8e0_5362924.png "定时任务.png")
+
 
 ### 
  **平台首页，** 
