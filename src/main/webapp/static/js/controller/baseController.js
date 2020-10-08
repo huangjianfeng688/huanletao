@@ -84,8 +84,8 @@ app.controller('baseController' ,function($scope,userService){
     responseInfo = function (response) {
         swal({
             title:'',
-            text:response.message,
-            icon:response.statusCode == 2000 ? "success":"error"
+            text:response.data.message,
+            icon:response.data.statusCode == 2000 ? "success":"error"
         });
     }
 

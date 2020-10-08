@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2020-09-26 13:07:45
+Date: 2020-10-08 18:19:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,15 +40,20 @@ CREATE TABLE `sys_menu` (
   `html` varchar(25) NOT NULL,
   `type` varchar(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('1', '用户管理', 'User.html', '1');
-INSERT INTO `sys_menu` VALUES ('2', '商品管理', 'goods.html', '1');
+INSERT INTO `sys_menu` VALUES ('1', '用户管理', 'sysUser.html', '1');
+INSERT INTO `sys_menu` VALUES ('2', '商品审核', 'goods.html', '1');
 INSERT INTO `sys_menu` VALUES ('3', '订单管理', 'Orders.html', '1');
 INSERT INTO `sys_menu` VALUES ('4', '定时任务', 'job.html', '1');
+INSERT INTO `sys_menu` VALUES ('5', '广告管理', 'advert.html', '1');
+INSERT INTO `sys_menu` VALUES ('6', '分类管理', 'category.html', '1');
+INSERT INTO `sys_menu` VALUES ('7', '菜单管理', 'menu.html', '1');
+INSERT INTO `sys_menu` VALUES ('8', '权限管理', 'permission.html', '1');
+INSERT INTO `sys_menu` VALUES ('9', '系统邮箱', 'mail.html', '1');
 
 -- ----------------------------
 -- Table structure for sys_permissions
@@ -85,8 +90,8 @@ CREATE TABLE `sys_role` (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES ('1', '系统管理员');
-INSERT INTO `sys_role` VALUES ('2', '超级管理员');
+INSERT INTO `sys_role` VALUES ('1', '业务管理员');
+INSERT INTO `sys_role` VALUES ('2', '系统管理员');
 INSERT INTO `sys_role` VALUES ('3', '权限管理员');
 INSERT INTO `sys_role` VALUES ('4', '商品管理员');
 INSERT INTO `sys_role` VALUES ('12', '高工');
@@ -103,14 +108,26 @@ CREATE TABLE `sys_role_menu` (
   `role_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_role_menu
 -- ----------------------------
-INSERT INTO `sys_role_menu` VALUES ('1', '1', '1');
-INSERT INTO `sys_role_menu` VALUES ('2', '1', '2');
-INSERT INTO `sys_role_menu` VALUES ('3', '2', '3');
+INSERT INTO `sys_role_menu` VALUES ('18', '3', '4');
+INSERT INTO `sys_role_menu` VALUES ('19', '3', '2');
+INSERT INTO `sys_role_menu` VALUES ('20', '3', '5');
+INSERT INTO `sys_role_menu` VALUES ('21', '4', '3');
+INSERT INTO `sys_role_menu` VALUES ('22', '12', '4');
+INSERT INTO `sys_role_menu` VALUES ('23', '12', '2');
+INSERT INTO `sys_role_menu` VALUES ('24', '1', '3');
+INSERT INTO `sys_role_menu` VALUES ('25', '1', '2');
+INSERT INTO `sys_role_menu` VALUES ('26', '1', '5');
+INSERT INTO `sys_role_menu` VALUES ('27', '1', '6');
+INSERT INTO `sys_role_menu` VALUES ('28', '2', '4');
+INSERT INTO `sys_role_menu` VALUES ('29', '2', '7');
+INSERT INTO `sys_role_menu` VALUES ('30', '2', '8');
+INSERT INTO `sys_role_menu` VALUES ('31', '2', '9');
+INSERT INTO `sys_role_menu` VALUES ('32', '2', '1');
 
 -- ----------------------------
 -- Table structure for sys_role_permission
@@ -141,7 +158,7 @@ CREATE TABLE `sys_user` (
   `mail` varchar(25) NOT NULL,
   `role_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_user
@@ -149,6 +166,9 @@ CREATE TABLE `sys_user` (
 INSERT INTO `sys_user` VALUES ('1', 'admin', '470c1a25c189b4d27506ab673567075d94', '1710350112@qq.com', '1');
 INSERT INTO `sys_user` VALUES ('2', 'root', '470c1a25c189b4d27506ab673567075d94', '171', '2');
 INSERT INTO `sys_user` VALUES ('3', 'zhangsan', '470c1a25c189b4d27506ab673567075d94', '444', '3');
+INSERT INTO `sys_user` VALUES ('4', 'huangjf', '123456', '11', '15');
+INSERT INTO `sys_user` VALUES ('5', 'weijy', '470c1a25c189b4d27506ab673567075d94', '11', '12');
+INSERT INTO `sys_user` VALUES ('6', 'test', '2971210a344143693b3892dc549633022', '1122', '15');
 
 -- ----------------------------
 -- Table structure for task_schedule_job
@@ -475,14 +495,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(in username varchar(25),
 BEGIN
 
    -- 声明变量。
-   DECLARE responseEnum varchar(20) DEFAULT '';
+   DECLARE result varchar(20) DEFAULT ''; 
 
    -- 赋值
-   select  COUNT(*) into responseEnum from web_user
+   select  COUNT(*) into result from web_user
    where web_user.loginname = username 
    and web_user.`password` = `password`;
    
-   select IF(responseEnum > 0,'成功','失败');
+   select IF(result > 0,'成功','失败');
 
 end
 ;;

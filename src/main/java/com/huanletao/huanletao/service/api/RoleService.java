@@ -1,5 +1,6 @@
 package com.huanletao.huanletao.service.api;
 
+import com.huanletao.huanletao.dto.RoleMenuGroupDTO;
 import com.huanletao.huanletao.entity.SysRole;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface RoleService {
     void updateSysRole(SysRole sysRole);
 
     SysRole findOne(Integer id);
+
+    void updateSysRoleMenus(RoleMenuGroupDTO roleMenuGroup);
 }

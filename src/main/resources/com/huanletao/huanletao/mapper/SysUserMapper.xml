@@ -10,6 +10,11 @@
     <result column="role_id" property="roleId" jdbcType="INTEGER" />
   </resultMap>
 
+  <select id="listSysUsers" resultMap="BaseResultMap">
+    select * from sys_user left join sys_role on sys_user.role_id = sys_role.id
+  </select>
+
+
   <select id="findSysUserByUserCode" parameterType="String" resultMap="BaseResultMap">
 
 SELECT * FROM sys_user LEFT JOIN sys_role ON sys_user.role_id = sys_role.id where username = #{userCode}

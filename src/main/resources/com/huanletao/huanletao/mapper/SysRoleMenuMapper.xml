@@ -6,6 +6,17 @@
     <result column="role_id" property="roleId" jdbcType="INTEGER" />
     <result column="menu_id" property="menuId" jdbcType="INTEGER" />
   </resultMap>
+
+  <insert id="batchInsert" parameterType="com.huanletao.huanletao.dto.RoleMenuGroupDTO">
+    INSERT INTO sys_role_menu (role_id, menu_id)
+    VALUES
+    <foreach collection="menuIds" item="item" open="" close="" separator=",">
+      (#{sysRole.id}, #{item})
+    </foreach>
+
+
+  </insert>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

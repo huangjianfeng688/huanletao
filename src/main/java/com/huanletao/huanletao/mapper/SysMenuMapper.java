@@ -1,5 +1,6 @@
 package com.huanletao.huanletao.mapper;
 
+import com.huanletao.huanletao.dto.MenuOptionVO;
 import com.huanletao.huanletao.entity.SysMenu;
 import com.huanletao.huanletao.entity.SysMenuExample;
 import java.util.List;
@@ -31,4 +32,6 @@ public interface SysMenuMapper {
     int updateByPrimaryKey(SysMenu record);
 
     List<SysMenu> findMenusByUser(SysUser user);
+
+    List<MenuOptionVO> listMenuOption(String keyWord);
 }

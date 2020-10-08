@@ -1,6 +1,7 @@
 package com.huanletao.huanletao.controller;
 
 import com.huanletao.huanletao.dto.ResponseObject;
+import com.huanletao.huanletao.dto.RoleMenuGroupDTO;
 import com.huanletao.huanletao.entity.SysRole;
 import com.huanletao.huanletao.service.api.RoleService;
 import com.huanletao.huanletao.tenum.ResponseEnum;
@@ -51,5 +52,19 @@ public class RoleController {
     public ResponseObject findOne(@PathVariable Integer id){
        SysRole sysRole = roleService.findOne(id);
        return ResponseObject.success(ResponseEnum.SELECTSUCCESS).setData(sysRole);
+    }
+
+    @PostMapping("save")
+    public ResponseObject saveRoleMenus(@RequestBody RoleMenuGroupDTO roleMenuGroup){
+
+
+        System.out.println("roleMenuGroup = " + roleMenuGroup);
+
+        SysRole sysRole = roleMenuGroup.getSysRole();
+        System.out.println("sysRole = " + sysRole);
+
+        roleService.updateSysRoleMenus(roleMenuGroup);
+
+        return ResponseObject.success(ResponseEnum.SAVESUCCESS);
     }
 }

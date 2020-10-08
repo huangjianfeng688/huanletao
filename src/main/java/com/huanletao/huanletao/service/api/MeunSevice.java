@@ -1,5 +1,6 @@
 package com.huanletao.huanletao.service.api;
 
+import com.huanletao.huanletao.dto.MenuOptionVO;
 import com.huanletao.huanletao.entity.SysMenu;
 import org.springframework.stereotype.Service;
 
@@ -22,4 +23,6 @@ public interface MeunSevice {
     void updateSysMenu(SysMenu sysMenu);
 
     SysMenu findOne(Integer id);
+
+    List<MenuOptionVO> listMenuOption(String keyWord);
 }

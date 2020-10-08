@@ -22,7 +22,7 @@ public class HuanletaoExceptionHandler {
     //对自定义异常进行处理
     @ResponseBody
     @ExceptionHandler(RuntimeException.class)
-    public ResponseObject hanle(RuntimeException e, Model model){
+    public ResponseObject hanle(RuntimeException e){
         //如果出现异常
         if (e instanceof IncorrectCredentialsException){
             return ResponseObject.fail(ResponseEnum.PASSWORDERROR);

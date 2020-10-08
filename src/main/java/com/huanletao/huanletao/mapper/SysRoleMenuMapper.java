@@ -1,5 +1,6 @@
 package com.huanletao.huanletao.mapper;
 
+import com.huanletao.huanletao.dto.RoleMenuGroupDTO;
 import com.huanletao.huanletao.entity.SysRoleMenu;
 import com.huanletao.huanletao.entity.SysRoleMenuExample;
 import java.util.List;
@@ -27,4 +28,10 @@ public interface SysRoleMenuMapper {
     int updateByPrimaryKeySelective(SysRoleMenu record);
 
     int updateByPrimaryKey(SysRoleMenu record);
+
+    /**
+     *  批量插入数据
+     * @param roleMenuGroup
+     */
+    void batchInsert(RoleMenuGroupDTO roleMenuGroup);
 }

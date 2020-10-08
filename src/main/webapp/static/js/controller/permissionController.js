@@ -11,10 +11,64 @@ app.controller('permissionController' ,function($scope,$controller,permissionSer
         })
     }
 
+    //select2 初始化。
+    $scope.select2init = function(){
+        $('#menu').select2({
+            placeholder: '请给角色配置菜单',
+            allowClear: true,
+            width:'100%',
+            minimumResultsForSearch:1,
+            ajax: {
+                url: "../menu/listMenus.do",
+                dataType: 'json',
+                Method: 'get',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        search: params.term,
+                    };
+                },
+                processResults: function (data) {
+                    console.log(data.data);
+                    return {
+                        results: data.data
+                    };
+                },
+                cache: true
+            }
+        });
+    }
+
+    $scope.roleMenuGroup={sysRole:'',menuIds:[]};
+
+    //保存数据。
+    $scope.save = function(){
+	    var data = $('#menu').select2("val");
+
+	    console.log(data);
+
+
+        $scope.roleMenuGroup.sysRole=$scope.entity;
+        $scope.roleMenuGroup.menuIds = data;
+
+        console.log($scope.roleMenuGroup);
+
+        permissionService.save($scope.roleMenuGroup).then(function (response) {
+            $("#categoryModal").modal("hide");
+            responseInfo(response);
+            $scope.findAll();
+        })
+
+
+    };
+
+
+
 
     $scope.updatePermission = function (entity) {
 		$scope.entity = entity ;
-        $('.selectpicker').selectpicker('val', 'Mustard');
+        $("#menu").val(null).trigger('change');
+        $scope.select2init();
     }
 
     //显示菜单列表。

@@ -1,5 +1,6 @@
 package com.huanletao.huanletao.service.impl;
 
+import com.huanletao.huanletao.dto.MenuOptionVO;
 import com.huanletao.huanletao.entity.SysMenu;
 import com.huanletao.huanletao.mapper.SysMenuMapper;
 import com.huanletao.huanletao.service.api.MeunSevice;
@@ -40,5 +41,10 @@ public class MeunSeviceImpl implements MeunSevice {
     @Override
     public SysMenu findOne(Integer id) {
         return sysMenuMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<MenuOptionVO> listMenuOption(String keyWord) {
+        return sysMenuMapper.listMenuOption(keyWord);
     }
 }

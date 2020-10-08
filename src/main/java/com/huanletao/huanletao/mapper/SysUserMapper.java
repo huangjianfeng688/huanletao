@@ -29,4 +29,11 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUser record);
 
     SysUser findSysUserByUserCode(String usercode);
+
+    /**
+     *  列表所有系统用户。
+     * @return
+     */
+    List<SysUser> listSysUsers();
+
 }

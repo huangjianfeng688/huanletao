@@ -7,8 +7,8 @@ app.service('permissionService',function($http){
     }
 
     //将数据保存到数据库
-    this.save = function (entity) {
-        return $http.post("../role/save.do",entity);
+    this.save = function (roleMenuGroup) {
+        return $http.post("../role/save.do",roleMenuGroup);
     }
 
     //删除指定的分类信息。

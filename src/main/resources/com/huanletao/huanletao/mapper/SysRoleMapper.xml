@@ -124,7 +124,7 @@
     insert into sys_role (id, role_name)
     values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.huanletao.huanletao.entity.SysRole" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.huanletao.huanletao.entity.SysRole" >
     insert into sys_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

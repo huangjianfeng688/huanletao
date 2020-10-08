@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created with IntelliJ IDEA.
  *
- * @auther: huangjianfeng
+ * @auther: 踏雪无痕。
  * @Date: 2020/9/27
  * @Time: 21:24
  * Description:
@@ -26,7 +26,7 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public List<SysUser> findAllSysUser() {
-        return sysUserMapper.selectByExample(null);
+        return sysUserMapper.listSysUsers();
     }
 
     @Override
@@ -35,6 +35,7 @@ public class SysUserServiceImpl implements SysUserService {
             String newPassword = MD5Utils.MD5Encode(sysUser.getPassword());
             sysUser.setPassword(newPassword);
             sysUserMapper.insertSelective(sysUser);
+            return ;
         }
         sysUserMapper.updateByPrimaryKeySelective(sysUser);
     }

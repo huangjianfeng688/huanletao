@@ -1,5 +1,6 @@
 package com.huanletao.huanletao.controller;
 
+import com.huanletao.huanletao.dto.MenuOptionVO;
 import com.huanletao.huanletao.dto.ResponseObject;
 import com.huanletao.huanletao.entity.SysMenu;
 import com.huanletao.huanletao.service.api.MeunSevice;
@@ -47,5 +48,12 @@ public class MenuController {
         SysMenu sysMenu = meunSevice.findOne(id);
         return ResponseObject.success(ResponseEnum.SELECTSUCCESS).setData(sysMenu);
     }
+
+    @GetMapping("listMenus")
+    public ResponseObject ListMeuns(String keyWord){
+        List<MenuOptionVO> sysMenuList = meunSevice.listMenuOption(keyWord);
+        return ResponseObject.success(ResponseEnum.SELECTSUCCESS).setData(sysMenuList);
+    }
+
 
 }
