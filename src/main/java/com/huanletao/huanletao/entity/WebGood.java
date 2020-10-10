@@ -1,8 +1,9 @@
 package com.huanletao.huanletao.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class WebGood {
+public class WebGood implements Serializable {
     private Integer goodid;
 
     private Integer userid;
@@ -13,7 +14,7 @@ public class WebGood {
 
     private String catename;
 
-    private BigDecimal price;
+    private String price;
 
     private Integer categoryid;
 
@@ -43,11 +44,11 @@ public class WebGood {
         this.goodname = goodname == null ? null : goodname.trim();
     }
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

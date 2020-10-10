@@ -1,5 +1,7 @@
 package com.huanletao.huanletao.service.api;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.huanletao.huanletao.entity.WebGood;
 import com.huanletao.huanletao.entity.WebGoodDesc;
 
@@ -26,4 +28,7 @@ public interface GoodServices {
 
     //显示几个商品信息在首页。
     List<WebGoodDesc> showGood();
+
+    //整理爬取的数据入库。。
+    void importDataToDb(JSONArray data);
 }

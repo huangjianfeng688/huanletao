@@ -1,6 +1,8 @@
 package com.huanletao.huanletao.entity;
 
-public class WebCategory {
+import java.io.Serializable;
+
+public class WebCategory implements Serializable {
     private Integer categoryid;
 
     private String catename;

@@ -4,6 +4,8 @@ import org.apache.log4j.Logger;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+import java.security.KeyManagementException;
 import java.util.Date;
 
 /**
@@ -16,14 +18,22 @@ import java.util.Date;
  */
 @Component
 public class TaskCompeteOrder {
-
+   // @Resource
+ //   private GoodSpider spider;
     private static  Logger logger = Logger.getLogger(TaskCompeteOrder.class);
     /**
      *
      */
-   // @Scheduled(cron = "0/10 * * * * ?")
+    @Scheduled(cron = "0 22 1 * * ?")
     public void SysTaskCompeteOrder() {
-        logger.info("定时完成买家未完成的订单任务。时间：{}"+new Date());
+
+        logger.info("开始爬取数据");
+//        try {
+//           // spider.getGoods();
+//        } catch (KeyManagementException e) {
+//            e.printStackTrace();
+//        }
+        logger.info("数据爬取完成");
     }
 
     //@Scheduled(cron = "0/10 * * * * ?")

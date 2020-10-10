@@ -41,6 +41,7 @@ public class AdminController {
          AuthenticationToken token = new UsernamePasswordToken(username,pwd);
          subject.login(token);
          ActiveUser activeUser = (ActiveUser) subject.getPrincipal();
+
          return ResponseObject.success(ResponseEnum.LOGINSUCCESS).setData(activeUser);
      }
 

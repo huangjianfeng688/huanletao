@@ -1,6 +1,8 @@
 package com.huanletao.huanletao.entity;
 
-public class WebAdvert {
+import java.io.Serializable;
+
+public class WebAdvert implements Serializable {
     private Integer advertid;
 
     private String advertname;

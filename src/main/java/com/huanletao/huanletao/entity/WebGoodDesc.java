@@ -16,7 +16,7 @@ public class WebGoodDesc implements Serializable {
     private String goodname;
 
     @Field("item_price")
-    private BigDecimal price;
+    private String price;
 
     @Field("item_image")
     private String pictures;
@@ -82,11 +82,11 @@ public class WebGoodDesc implements Serializable {
         this.goodname = goodname == null ? null : goodname.trim();
     }
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

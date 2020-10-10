@@ -148,7 +148,6 @@ public class JobTaskService {
 
 		// 这里获取任务信息数据
 		List<ScheduleJob> jobList = scheduleJobMapper.getAll();
-		log.info("初始化任务：===================================");
 		for (ScheduleJob job : jobList) {
 			addJob(job);
 		}

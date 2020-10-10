@@ -17,6 +17,7 @@ import java.util.Map;
  * Description:solr 工具类.
  */@Component
 public class SolrUtils {
+
     @Autowired
     private WebGoodDescMapper webGoodDescMapper;
 
