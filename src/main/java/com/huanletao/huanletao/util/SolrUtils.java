@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,7 @@ public class SolrUtils {
     private SolrTemplate solrTemplate;
 
     //将数据库的数据导入索引库中,
+    @PostConstruct
     public void importDatatoSolr(){
         List<WebGoodDesc> passGood = webGoodDescMapper.findPassGood();
 

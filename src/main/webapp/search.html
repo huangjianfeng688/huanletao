@@ -41,7 +41,7 @@
         width: 1400px;
     }
 </style>
-<body ng-app="huanletao" ng-controller="searchController">
+<body ng-app="huanletao" ng-controller="searchController" ng-init="search()">
 <!--导航栏-->
 <nav class="navbar navbar-default" style="background: #00e765">
     <div class="container-fluid">
@@ -154,20 +154,21 @@
         <!--分页导航-->
         <div class="pager page-header">
             <ul>
-                <li><a href="#">上一页</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">下一页</a></li>
+                <li ng-if="searchMap.page==1" class="disabled"><a href="#">上一页</a></li>
+                <li ng-if="firstDot"><a href="#">...</a></li>
+                <li ng-repeat="num in pageLabel"><a href="#" ng-click="skipPage(num)">{{num}}</a></li>
+                <li ng-if="lastDot"><a href="#">...</a></li>
+                <li ng-if="num==resultMap.totalPages" class="disabled"><a href="#" ng-click="goPage(num+1)">下一页</a></li>
+                <li><a href="#"><span><em>共{{resultMap.totalPages}}页</em></span></a></li>
+                <li><a href="#">到第<input ng-model="searchMap.page" type="text" style="max-width: 35px">页</a></li>
+                <li><a ng-click="skipPage(searchMap.page)"  href="#">确定</a></li>
             </ul>
         </div>
-</div>
 
 
     <!--底部内容-->
-    <div class="panel-footer mfooter" >
-        <div class="row" style="padding-top: 12px">
+<!--    <div class="panel-footer mfooter" >
+        <div class="row">
             <div class="col-lg-offset-2 col-md-4">
                 <p>联系我们 / contact us </p>
                 <p> Q 群：433981852</p>
@@ -181,13 +182,13 @@
                 <p><a href="http://www.gxstnu.edu.cn/"> > </a>  广西科技师范学院 </p>
             </div>
         </div>
-        <!--分隔线-->
+        &lt;!&ndash;分隔线&ndash;&gt;
         <hr>
         <div class="row" >
             <p class="text-center">版权所有 &copy; 欢乐淘科技有限公司</p>
         </div>
     </div>
-
+    </div>-->
 </div>
 </body>
 <script>

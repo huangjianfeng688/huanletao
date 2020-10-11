@@ -31,4 +31,9 @@ app.controller('indexController' ,function($scope,$controller,categoryService,ad
         })
     }
 
+    $scope.search = function(){
+        location.href="http://localhost:8081/search.html?keywords="+$scope.keywords;
+	}
+
+
 });	

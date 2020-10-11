@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
 
@@ -26,10 +27,13 @@ public class SolrUtil {
 
     //将数据库的数据导入索引库中,
     public void importDatatoSolr(){
-        List<WebGoodDesc> passGood = webGoodDescMapper.findPassGood();
+        List<WebGoodDesc> passGood = webGoodDescMapper.selectByExample(null);
 
         //添加数据到索引库中
         solrTemplate.saveBeans(passGood);
+
+        System.out.println("导入索引库的数据量为： = " + passGood.size());
+
         //提交
         solrTemplate.commit();
     }

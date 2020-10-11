@@ -5,7 +5,7 @@ app.controller("searchController",function ($scope,$controller,$location,searchS
     $scope.searchMap = {"keywords":"",
                         "price":"",
                         "page":1,
-                        "pageSize":30
+                        "pageSize":20
     };
     //生成分页导航
     createPageLabel = function(){
@@ -60,10 +60,13 @@ app.controller("searchController",function ($scope,$controller,$location,searchS
     //1.进行查询
     $scope.search=function () {
         //获取首页传来的参数值.
-        console.log($scope.searchMap.keywords);
+        var url= window.location.href;
+        var index = url.substring(url.lastIndexOf('=') + 1);
+        if ($scope.searchMap.keywords ==""){
+            $scope.searchMap.keywords = decodeURI(index);
+        }
         searchService.search($scope.searchMap).then(function (value) {
             $scope.resultMap = value.data;
-            console.log($scope.resultMap)
             createPageLabel();
         })
     };
