@@ -4,7 +4,6 @@ import javax.net.ssl.*;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.security.cert.X509Certificate;
 
 /**
@@ -48,9 +47,6 @@ public class HttpClient {
             out = new PrintWriter(conn.getOutputStream());
             out.print(param);
             // 发送请求参数
-            // out.print(a);
-            // Post 请求不能使用缓存
-
 
             out.flush();
             // 定义BufferedReader输入流来读取URL的响应

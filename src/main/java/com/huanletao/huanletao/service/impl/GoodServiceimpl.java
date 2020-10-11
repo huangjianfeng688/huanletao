@@ -2,6 +2,8 @@ package com.huanletao.huanletao.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.huanletao.huanletao.entity.WebGood;
 import com.huanletao.huanletao.entity.WebGoodDesc;
 import com.huanletao.huanletao.entity.WebGoodExample;
@@ -49,7 +51,9 @@ public class GoodServiceimpl implements GoodServices {
      //查询所有商品信息，
     @Override
     public List<WebGood> findAll() {
-        return webGoodMapper.findGoodsAndUserCate();
+        PageHelper.startPage(0,20);
+        PageInfo<WebGood> webGoodPageInfo = new PageInfo<>(webGoodMapper.findGoodsAndUserCate(""));
+        return webGoodPageInfo.getList();
     }
 
     //查询商品详情信息，根据id查询。
@@ -158,4 +162,17 @@ public class GoodServiceimpl implements GoodServices {
         redisUtils.set("cate",webCategoryMapper.selectByExample(null));
     }
 
+
+    @Override
+    public PageInfo search(int page, int rows, String wd) {
+
+        log.info("wd = "+wd);
+
+        PageHelper.startPage(page,rows);
+        List<WebGood> goodsAndUserCate = webGoodMapper.findGoodsAndUserCate(wd);
+
+        PageInfo pageInfo = new PageInfo(goodsAndUserCate);
+
+        return pageInfo;
+    }
 }

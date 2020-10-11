@@ -29,7 +29,7 @@ public interface WebGoodMapper {
     int updateByPrimaryKey(WebGood record);
 
     //查询商品信息，发布人信息，关联的分类信息
-    List<WebGood> findGoodsAndUserCate();
+    List<WebGood> findGoodsAndUserCate(String wd);
 
     //根据当前登录的用户，查询自己的商品信息。
     List<WebGood> findMyGoodByUserCode(String userCode);

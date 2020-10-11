@@ -6,8 +6,18 @@ app.controller('goodController' ,function($scope,$location,$controller,goodServi
     //查询所有商品数据。
 	$scope.findAll = function () {
 		goodService.findAll().then(function (response) {
-			$scope.list=response.data;
+			$scope.list=response.data.data.list;
         })
+    }
+
+    //搜索
+    $scope.search=function(){
+        goodService.search($scope.paginationConf.currentPage,$scope.paginationConf.itemsPerPage,$scope.keyWord).then(
+            function(response){
+                $scope.list=response.data.data.list;
+                $scope.paginationConf.totalItems=response.data.data.total;//更新总记录数
+            }
+        );
     }
 
     //商品状态，0表示为未审核,1表示审核通过，2表示审核未通过

@@ -2,6 +2,7 @@ package com.huanletao.huanletao.service.api;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageInfo;
 import com.huanletao.huanletao.entity.WebGood;
 import com.huanletao.huanletao.entity.WebGoodDesc;
 
@@ -31,4 +32,6 @@ public interface GoodServices {
 
     //整理爬取的数据入库。。
     void importDataToDb(JSONArray data);
+
+    PageInfo search(int page, int rows, String wd);
 }

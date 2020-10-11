@@ -4,6 +4,14 @@ app.service('goodService',function($http){
     //请求后台查询所有数据信息。
     this.findAll = function () {
         return $http.get("../good/findAll.do")
+    };
+    this.search = function (page, rows,keyWord) {
+        if (keyWord==undefined){
+            keyWord = "";
+
+        }
+        console.log(keyWord);
+        return $http.get("../good/search.do?page="+page+"&rows="+rows+"&wd="+keyWord);
     }
 
     //查询商品详情

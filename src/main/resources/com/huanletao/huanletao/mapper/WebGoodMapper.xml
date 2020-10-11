@@ -27,11 +27,13 @@
   </insert>
 
   <!--查询商品信息，用户信息，关联的分类信息，-->
-  <select id="findGoodsAndUserCate" resultMap="BaseResultMap">
+  <select id="findGoodsAndUserCate" parameterType="java.lang.String" resultMap="BaseResultMap">
     SELECT * FROM web_category,
     (SELECT web_good.*,web_user.`loginname` username FROM web_good
     INNER JOIN web_user ON web_good.`userid`=web_user.`userid`
-    ) AS good WHERE web_category.`categoryid`=good.categoryid;
+    ) AS good WHERE web_category.`categoryid`=good.categoryid
+      and good.goodname like concat('%',#{wd},'%')
+
   </select>
 
   <!--查询当前登录用户的商品信息，-->

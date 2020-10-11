@@ -1,5 +1,9 @@
 package com.huanletao.huanletao.util;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.crypto.hash.SimpleHash;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -27,4 +31,14 @@ public class MD5Utils {
 
         return new BigInteger(1, md.digest()).toString(14);
     }
+
+
+    public static String encode(String resource,String salt){
+        SimpleHash hash = null;
+        if (StringUtils.isNotBlank(salt)) {
+            hash = new Md5Hash(resource,salt);
+        }
+        return hash.toString();
+    }
+
 }

@@ -13,7 +13,7 @@ app.controller('baseController' ,function($scope,userService){
          itemsPerPage: 10,
          perPageOptions: [5, 10, 15, 20, 30, 40, 50],
          onChange: function(){
-        	 $scope.findAll();//重新加载
+        	$scope.search()//重新加载
      	 }
 	};
 
