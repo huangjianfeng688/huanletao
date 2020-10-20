@@ -49,13 +49,13 @@ public class MailUtils {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 //传入发件人的姓名和授权码
-                return new PasswordAuthentication("1710350112@qq.com","qcawupjzhcnycjej");
+                return new PasswordAuthentication("1710350112@qq.com","");
             }
         });
         //2、通过session获取transport对象
         Transport transport = session.getTransport();
         //3、通过transport对象邮箱用户名和授权码连接邮箱服务器
-        transport.connect("smtp.qq.com","1710350112@qq.com","qcawupjzhcnycjej");
+        transport.connect("smtp.qq.com","1710350112@qq.com","");
         //4、创建邮件,传入session对象
         MimeMessage mimeMessage = complexEmail(session,filePath);
         //5、发送邮件
@@ -153,7 +153,7 @@ public class MailUtils {
         //获取连接对象
         Transport transport = session.getTransport();
         //连接服务器
-        transport.connect("smtp.qq.com","1710350112@qq.com","idikyusyymladhhj");
+        transport.connect("smtp.qq.com","1710350112@qq.com","");
         //创建邮件对象
         MimeMessage mimeMessage = new MimeMessage(session);
         //邮件发送人

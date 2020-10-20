@@ -22,8 +22,6 @@
 - 后台进行数据可视化。
 - 后台新增生成代码模块。
 
-
-
 平台开发使用的技术有：
 后台：spirng，springmvc，mybaits，
 前台：angularjs+bootstrap。
@@ -35,6 +33,7 @@
 业务管理员：admin/123456
 系统管理员：root/123456
 
+### 项目运行效果图：
 
 ###  **后台管理系统 **
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1008/183522_f85589b1_5362924.png "屏幕截图.png")
@@ -72,11 +71,39 @@
  **发布新商品模块** 
 ![商品发布模块。](https://images.gitee.com/uploads/images/2020/0220/141225_808773c0_5362924.png "personalrele.png")
 
-#### 码云特技
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
+
+项目用到的组件：
+  
+   1.redis 缓存
+
+   2.solr 搜索服务
+
+   3.MySQL 数据库。
+
+
+项目部署说明：
+   1. 先启动redis 服务器。 下载好压缩包，直接解压运行旧可以了。
+
+   2. 部署solr 服务器。
+
+      2.1  将我提供的solr文件夹放到tomcat的webapp即可。 
+      2.2  把solrHOME 文件夹放到D盘下，如果更换solrHome的位置，在solr 中的web.xml 的配置取修改即可。
+           <env-entry>
+                <env-entry-name>solr/home</env-entry-name>
+                        <!-- 这里是solrHome文件夹的位置。-->
+                <env-entry-value>{d:/solr_home}</env-entry-value>
+                <env-entry-type>java.lang.String</env-entry-type>
+           </env-entry>
+
+    3. 创建huanletaodb 数据库，执行huanletao.sql 文件。【默认你已经安装好了数据库】
+
+    4. 修改数据库连接密码和用户名【你自己的】
+
+    5. 用idea 导入项目， 刷新maven 导入jar包
+
+    6. 建议用maven的tomcat插件 启动项目。
+       6.1 点击设置配置，添加maven 输入启动命令：tomcat7:run
+
+    【注意】:项目第一次启动，会执行导入MySQL数据都solr索引库中。第二次启动时，去掉util.solrUtils 的 @PostConstruct 注解。
