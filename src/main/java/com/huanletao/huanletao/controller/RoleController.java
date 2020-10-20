@@ -6,6 +6,8 @@ import com.huanletao.huanletao.entity.SysRole;
 import com.huanletao.huanletao.service.api.RoleService;
 import com.huanletao.huanletao.tenum.ResponseEnum;
 import org.apache.log4j.Logger;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,6 +31,7 @@ public class RoleController {
 
     private static final Logger logger = Logger.getLogger(RoleController.class);
 
+    @RequiresAuthentication
     @GetMapping("findAll")
     public ResponseObject findAllRole(){
         List<SysRole> roles = roleService.findAll();
@@ -54,11 +57,9 @@ public class RoleController {
        return ResponseObject.success(ResponseEnum.SELECTSUCCESS).setData(sysRole);
     }
 
+    @RequiresPermissions("{role:save}")
     @PostMapping("save")
     public ResponseObject saveRoleMenus(@RequestBody RoleMenuGroupDTO roleMenuGroup){
-
-
-        System.out.println("roleMenuGroup = " + roleMenuGroup);
 
         SysRole sysRole = roleMenuGroup.getSysRole();
         System.out.println("sysRole = " + sysRole);

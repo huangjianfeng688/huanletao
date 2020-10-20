@@ -3,6 +3,9 @@ package com.huanletao.huanletao.controller;
 import com.huanletao.huanletao.dto.ResponseObject;
 import com.huanletao.huanletao.entity.WebComment;
 import com.huanletao.huanletao.entity.WebUser;
+import com.huanletao.huanletao.observer.GoodOwnerObserver;
+import com.huanletao.huanletao.observer.GoodSubscribeSubject;
+import com.huanletao.huanletao.observer.base.AbstractSubject;
 import com.huanletao.huanletao.service.api.CollectService;
 import com.huanletao.huanletao.service.api.CommentService;
 import com.huanletao.huanletao.service.api.UserServices;
@@ -12,12 +15,16 @@ import com.huanletao.huanletao.tenum.ResponseEnum;
 import com.huanletao.huanletao.util.MailUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import java.security.GeneralSecurityException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,25 +43,31 @@ public class GoodDetailController {
         private CollectService collectService;
         @Autowired
         private CommentService commentService;
-        @Autowired
-        private UserServices userServices;
 
         @Autowired
         private HttpSession session;
 
+        @Resource
+        private GoodSubscribeSubject goodSubscribeSubject;
+
+
     private static final Logger logger = Logger.getLogger(GoodDetailController.class);
 
-     //用户添加我的想要。
+    //用户添加我的想要。
      @GetMapping("addWant")
-    public ResponseObject addMyWant(int goodid, String username) throws GeneralSecurityException, MessagingException {
+    public ResponseObject addWant(int goodid, String username) throws GeneralSecurityException, MessagingException {
 
+         goodSubscribeSubject.addWant(username,goodid);
+       /*
          WebUser webUser = (WebUser) session.getAttribute(username);
          wantService.save(goodid,webUser.getLoginname());
+         Map<String,String> map = new HashMap<>();
+         //这些数据从上面查出来。查出商品所有者。
+         map.put("buyer",webUser.getLoginname());
+         map.put("owner","1710350112@qq.com");
 
-         WebUser seller = userServices.findByGoodId(goodid);
-         String context ="用户："+webUser.getLoginname() + "订阅了你的宝贝。";
-         MailUtils.sendSimpleMail(seller.getLoginname(),context);
-         logger.info("已经发送邮箱通知宝贝主人 ---》"+seller.getUsername());
+         //通知所有观察者。
+         super.notifyObserver(map);*/
 
         return ResponseObject.success(ResponseEnum.SAVESUCCESS);
      }

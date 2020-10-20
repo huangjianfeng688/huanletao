@@ -26,7 +26,6 @@ public class SolrUtils {
     private SolrTemplate solrTemplate;
 
     //将数据库的数据导入索引库中,
-    @PostConstruct
     public void importDatatoSolr(){
         List<WebGoodDesc> passGood = webGoodDescMapper.findPassGood();
 
