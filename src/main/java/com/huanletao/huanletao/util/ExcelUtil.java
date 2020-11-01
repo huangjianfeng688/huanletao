@@ -1,6 +1,13 @@
 package com.huanletao.huanletao.util;
 
 
+import com.huanletao.huanletao.annotation.Excel;
+import com.huanletao.huanletao.dto.AjaxResult;
+import com.huanletao.huanletao.exception.HuanletaoException;
+import com.huanletao.huanletao.reflect.ReflectUtils;
+import com.huanletao.huanletao.util.StringUtils;
+import com.huanletao.huanletao.util.DateUtils;
+import jdk.nashorn.internal.objects.Global;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddressList;
@@ -37,7 +44,7 @@ public class ExcelUtil<T> {
     /**
      * 导出类型（EXPORT:导出数据；IMPORT：导入模板）
      */
-    private Type type;
+    private Excel.Type type;
 
     /**
      * 工作薄对象
@@ -73,7 +80,7 @@ public class ExcelUtil<T> {
         this.clazz = clazz;
     }
 
-    public void init(List<T> list, String sheetName, Type type) {
+    public void init(List<T> list, String sheetName, Excel.Type type) {
         if (list == null) {
             list = new ArrayList<T>();
         }
@@ -102,7 +109,7 @@ public class ExcelUtil<T> {
      * @return 转换后集合
      */
     public List<T> importExcel(String sheetName, InputStream is) throws Exception {
-        this.type = Type.IMPORT;
+        this.type = Excel.Type.IMPORT;
         this.wb = WorkbookFactory.create(is);
         List<T> list = new ArrayList<T>();
         Sheet sheet = null;
@@ -141,7 +148,7 @@ public class ExcelUtil<T> {
             for (int col = 0; col < allFields.length; col++) {
                 Field field = allFields[col];
                 Excel attr = field.getAnnotation(Excel.class);
-                if (attr != null && (attr.type() == Type.ALL || attr.type() == type)) {
+                if (attr != null && (attr.type() == Excel.Type.ALL || attr.type() == type)) {
                     // 设置类的私有字段属性可访问.
                     field.setAccessible(true);
                     Integer column = cellMap.get(attr.name());
@@ -215,7 +222,7 @@ public class ExcelUtil<T> {
      * @return 结果
      */
     public AjaxResult exportExcel(List<T> list, String sheetName) {
-        this.init(list, sheetName, Type.EXPORT);
+        this.init(list, sheetName, Excel.Type.EXPORT);
         return exportExcel();
     }
 
@@ -226,7 +233,7 @@ public class ExcelUtil<T> {
      * @return 结果
      */
     public AjaxResult importTemplateExcel(String sheetName) {
-        this.init(null, sheetName, Type.IMPORT);
+        this.init(null, sheetName, Excel.Type.IMPORT);
         return exportExcel();
     }
 
@@ -251,7 +258,7 @@ public class ExcelUtil<T> {
                     Excel excel = (Excel) os[1];
                     this.createCell(excel, row, column++);
                 }
-                if (Type.EXPORT.equals(type)) {
+                if (Excel.Type.EXPORT.equals(type)) {
                     fillExcelData(index, row);
                 }
             }
@@ -260,9 +267,8 @@ public class ExcelUtil<T> {
             wb.write(out);
             return AjaxResult.success(filename);
         } catch (Exception e) {
-			  e.printStackTrace();
             log.error("导出Excel异常{}", e.getMessage());
-            throw new BusinessException("导出Excel失败，请联系网站管理员！");
+            throw new HuanletaoException("导出Excel失败，请联系网站管理员！");
         } finally {
             if (wb != null) {
                 try {
@@ -369,10 +375,10 @@ public class ExcelUtil<T> {
      * @param cell  单元格信息
      */
     public void setCellVo(Object value, Excel attr, Cell cell) {
-        if (ColumnType.STRING == attr.cellType()) {
+        if (Excel.ColumnType.STRING == attr.cellType()) {
             cell.setCellType(CellType.NUMERIC);
             cell.setCellValue(StringUtils.isNull(value) ? attr.defaultValue() : value + attr.suffix());
-        } else if (ColumnType.NUMERIC == attr.cellType()) {
+        } else if (Excel.ColumnType.NUMERIC == attr.cellType()) {
             cell.setCellType(CellType.NUMERIC);
             cell.setCellValue(Integer.parseInt(value + ""));
         }
@@ -429,7 +435,6 @@ public class ExcelUtil<T> {
                 }
             }
         } catch (Exception e) {
-			  e.printStackTrace();
             log.error("导出Excel失败{}", e);
         }
         return cell;
@@ -505,7 +510,6 @@ public class ExcelUtil<T> {
                 }
             }
         } catch (Exception e) {
-			  e.printStackTrace();
             throw e;
         }
         return propertyValue;
@@ -529,7 +533,6 @@ public class ExcelUtil<T> {
                 }
             }
         } catch (Exception e) {
-			  e.printStackTrace();
             throw e;
         }
         return propertyValue;
@@ -549,7 +552,7 @@ public class ExcelUtil<T> {
      * @param filename 文件名称
      */
     public String getAbsoluteFile(String filename) {
-        String downloadPath = Global.getDownloadPath() + filename;
+        String downloadPath =  filename;
         File desc = new File(downloadPath);
         if (!desc.getParentFile().exists()) {
             desc.getParentFile().mkdirs();
@@ -615,13 +618,13 @@ public class ExcelUtil<T> {
             }
 
             // 多注解
-            if (field.isAnnotationPresent(Excels.class)) {
+/*            if (field.isAnnotationPresent(Excels.class)) {
                 Excels attrs = field.getAnnotation(Excels.class);
                 Excel[] excels = attrs.value();
                 for (Excel excel : excels) {
                     putToField(field, excel);
                 }
-            }
+            }*/
         }
     }
 
@@ -629,7 +632,7 @@ public class ExcelUtil<T> {
      * 放到字段集合中
      */
     private void putToField(Field field, Excel attr) {
-        if (attr != null && (attr.type() == Type.ALL || attr.type() == type)) {
+        if (attr != null && (attr.type() == Excel.Type.ALL || attr.type() == type)) {
             this.fields.add(new Object[]{field, attr});
         }
     }

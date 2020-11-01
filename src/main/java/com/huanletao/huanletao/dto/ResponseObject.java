@@ -66,6 +66,11 @@ public class ResponseObject implements Serializable {
         return new ResponseObject(responseEnum.getCode(), responseEnum.getMessage());
     }
 
+    //使用枚举
+    public static ResponseObject success(){
+        return new ResponseObject();
+    }
+
     public ResponseObject setData(Object data){
         this.data = data;
         return this;
