@@ -2,8 +2,9 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.SysDict;
 import com.huanletao.huanletao.entity.SysDictExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SysDictMapper {
     int countByExample(SysDictExample example);

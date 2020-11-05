@@ -3,28 +3,21 @@ package com.huanletao.huanletao.controller;
 import com.huanletao.huanletao.dto.ResponseObject;
 import com.huanletao.huanletao.entity.WebComment;
 import com.huanletao.huanletao.entity.WebUser;
-import com.huanletao.huanletao.observer.GoodOwnerObserver;
 import com.huanletao.huanletao.observer.GoodSubscribeSubject;
-import com.huanletao.huanletao.observer.base.AbstractSubject;
 import com.huanletao.huanletao.service.api.CollectService;
 import com.huanletao.huanletao.service.api.CommentService;
-import com.huanletao.huanletao.service.api.UserServices;
 import com.huanletao.huanletao.service.api.WantService;
 
 import com.huanletao.huanletao.tenum.ResponseEnum;
-import com.huanletao.huanletao.util.MailUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import java.security.GeneralSecurityException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.

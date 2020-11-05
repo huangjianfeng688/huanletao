@@ -2,7 +2,6 @@ package com.huanletao.huanletao.service.impl;
 
 import com.huanletao.huanletao.dto.RoleMenuGroupDTO;
 import com.huanletao.huanletao.entity.SysRole;
-import com.huanletao.huanletao.entity.SysRoleMenu;
 import com.huanletao.huanletao.entity.SysRoleMenuExample;
 import com.huanletao.huanletao.mapper.SysRoleMapper;
 import com.huanletao.huanletao.mapper.SysRoleMenuMapper;

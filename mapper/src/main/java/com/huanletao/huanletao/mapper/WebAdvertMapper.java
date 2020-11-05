@@ -2,8 +2,9 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.WebAdvert;
 import com.huanletao.huanletao.entity.WebAdvertExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface WebAdvertMapper {
     int countByExample(WebAdvertExample example);

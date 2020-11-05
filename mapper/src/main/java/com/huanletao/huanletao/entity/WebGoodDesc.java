@@ -3,7 +3,6 @@ package com.huanletao.huanletao.entity;
 import org.apache.solr.client.solrj.beans.Field;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class WebGoodDesc implements Serializable {
 

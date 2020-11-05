@@ -2,8 +2,9 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.SysRole;
 import com.huanletao.huanletao.entity.SysRoleExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SysRoleMapper {
     int countByExample(SysRoleExample example);

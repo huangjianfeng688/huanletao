@@ -2,8 +2,9 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.WebGoodDesc;
 import com.huanletao.huanletao.entity.WebGoodDescExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface WebGoodDescMapper {
     int countByExample(WebGoodDescExample example);

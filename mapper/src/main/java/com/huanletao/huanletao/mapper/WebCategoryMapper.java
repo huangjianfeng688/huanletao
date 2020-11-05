@@ -2,8 +2,9 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.WebCategory;
 import com.huanletao.huanletao.entity.WebCategoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface WebCategoryMapper {
     int countByExample(WebCategoryExample example);

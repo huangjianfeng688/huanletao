@@ -2,8 +2,9 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.WebUser;
 import com.huanletao.huanletao.entity.WebUserExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface WebUserMapper {
     int countByExample(WebUserExample example);

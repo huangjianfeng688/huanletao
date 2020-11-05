@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugins/angularjs/pagination.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/pagination.js"></script>
+    <script src="/static/js/base_Route.js"></script>
+    <script src="/static/js/base_pagination.js"></script>
+    <script src="/static/js/services/personalService.js"></script>
+    <script src="/static/js/controller/personalController.js"></script>
+    <script src="/static/js/controller/myOrderController.js"></script>
+</head>
+<body>
+
+<div class="container" style="width: 600px">
+    <h3 class="text-left" style="color: #01ff70">我的订单</h3>
+    <table class="table table-hover text-center" style="margin-top: 12px">
+        <thead>
+            <tr>
+                <th class="text-center"><input type="checkbox">全选</th>
+                <th class="text-center">序号</th>
+                <th class="text-center">名称</th>
+                <th class="text-center">价格</th>
+                <th class="text-center">购买者</th>
+                <th class="text-center">发布者</th>
+                <th class="text-center">状态</th>
+                <th class="text-center">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="order in myOrders">
+                <td><input type="checkbox"></td>
+                <td>{{order.orderid}}</td>
+                <td>{{order.goodname}}</td>
+                <td>{{order.price}}</td>
+                <td>{{order.buyername}}</td>
+                <td>{{order.sellername}}</td>
+                <td>{{staus[order.status]}}</td>
+                <td ng-if="order.status==0">
+                    <button ng-if="order.sellerid==entity.userid" class="btn btn-danger" ng-click="updateOrderStatus(order.orderid,'2')">取消订单</button>
+                    <button ng-if="order.buyerid==entity.userid" class="btn btn-success" ng-click="updateOrderStatus(order.orderid,'1')" >完成交易</button>
+                </td>
+                <td ng-if="order.status==2||order.status==1">
+                    <a href="#" ng-if="order.sellerid==entity.userid"  class="btn btn-danger disabled">取消订单</a>
+                    <a href="#" ng-if="order.buyerid==entity.userid" class="btn btn-success disabled" >完成交易</a>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <tm-pagination conf="paginationConf"></tm-pagination>
+</div>
+</body>
+</html>

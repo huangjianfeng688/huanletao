@@ -1,7 +1,6 @@
 package com.huanletao.huanletao.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class WebGood implements Serializable {
     private Integer goodid;

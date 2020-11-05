@@ -2,8 +2,9 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.WebCollect;
 import com.huanletao.huanletao.entity.WebCollectExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface WebCollectMapper {
     int countByExample(WebCollectExample example);

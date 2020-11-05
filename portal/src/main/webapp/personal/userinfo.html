@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugins/angularjs/pagination.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/pagination.js"></script>
+    <script src="/static/js/base_Route.js"></script>
+    <script src="/static/js/services/personalService.js"></script>
+    <script src="/static/js/controller/personalController.js"></script>
+    <script src="/static/js/controller/userInfoController.js"></script>
+</head>
+
+<style>
+   #file{
+       position: absolute;
+       width: 80px;
+       height: 50px;
+       opacity: 0;
+   }
+    #img{
+        position: absolute;
+        /*height: 320px;*/
+    }
+</style>
+<body ng-app="huanletao" ng-controller="userInfoController">
+<div class="container" style="width: 600px;">
+    <form action="#" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="" class="control-label col-md-2">头像</label>
+            <div class="col-md-8">
+                <img src="{{entity.headimage}}" id="img" height="50" width="60" class="img-circle">
+                <input type="file" id="file">
+                <button type="button" ng-click="changeAvatar()" class="btn btn-success col-lg-offset-4">更换头像</button>
+            </div>
+
+        </div>
+        <div class="row"></div>
+        <div class="form-group" style="margin-top: 12px">
+            <label for="" class="control-label col-md-2">昵称:</label>
+            <div class="col-md-8">
+                <input type="text" ng-model="entity.username" class="form-control" style="width: 150px">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-md-2">登录名:</label>
+            <div class="col-md-8">
+                <input type="text" ng-model="entity.loginname" disabled="disabled" class="form-control" style="width: 150px">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="" class="control-label col-md-2">性别:</label>
+            <div class="col-md-8">
+                <div class="radio checkbox-inline">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" checked>
+                        男
+                    </label>
+                </div>
+                <div class="radio checkbox-inline">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" >
+                        女
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="" class="control-label col-md-2">就读学校:</label>
+            <div class="col-md-8">
+                <input type="text" ng-model="entity.college" class="form-control" style="width: 150px">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="" class="control-label col-md-2">毕业时间:</label>
+            <div class="col-md-8">
+                <input type="text" ng-model="entity.graduatedate|date:'yyyy-MM-dd'" class="form-control" style="width: 150px">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-2">
+                <button class="btn btn-primary" ng-click="changUserInfo()">保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

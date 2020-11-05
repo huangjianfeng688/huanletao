@@ -11,5 +11,12 @@
 
     <artifactId>common</artifactId>
 
+    <!--<dependencies>-->
+        <!--<dependency>-->
+            <!--<groupId>com.huanletao</groupId>-->
+            <!--<artifactId>mapper</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+    <!--</dependencies>-->
 
 </project>

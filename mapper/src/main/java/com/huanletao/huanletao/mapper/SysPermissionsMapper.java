@@ -2,10 +2,10 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.SysPermissions;
 import com.huanletao.huanletao.entity.SysPermissionsExample;
-import java.util.List;
-
 import com.huanletao.huanletao.entity.SysUser;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SysPermissionsMapper {
     int countByExample(SysPermissionsExample example);

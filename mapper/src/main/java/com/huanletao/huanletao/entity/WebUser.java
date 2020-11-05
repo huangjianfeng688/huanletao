@@ -1,7 +1,6 @@
 package com.huanletao.huanletao.entity;
 
 import java.util.Date;
-import java.util.List;
 
 public class WebUser {
     private Integer userid;

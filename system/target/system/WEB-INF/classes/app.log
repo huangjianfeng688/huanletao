@@ -1,0 +1,437 @@
+[DEBUG][2020-11-06 00:02:37,522][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[DEBUG][2020-11-06 00:02:42,433][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:02:42,486][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@635c5022] was not registered for synchronization because synchronization is not active
+[INFO][2020-11-06 00:02:42,775][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+[DEBUG][2020-11-06 00:02:43,597][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:02:43,609][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, advertid, advertname, tarurl, picaddress, status from web_advert WHERE ( status = ? ) 
+[DEBUG][2020-11-06 00:02:43,659][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==> Parameters: 1(String)
+[DEBUG][2020-11-06 00:02:43,692][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]<==      Total: 4
+[DEBUG][2020-11-06 00:02:43,695][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@635c5022]
+[DEBUG][2020-11-06 00:02:43,696][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:02:43,697][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@224546d8] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:02:43,698][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:02:43,700][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, advertid, advertname, tarurl, picaddress, status from web_advert WHERE ( status = ? ) 
+[DEBUG][2020-11-06 00:02:43,701][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==> Parameters: 1(String)
+[DEBUG][2020-11-06 00:02:43,705][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]<==      Total: 4
+[DEBUG][2020-11-06 00:02:43,706][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@224546d8]
+[DEBUG][2020-11-06 00:02:49,113][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:02:49,113][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@723ae928] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:02:49,114][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:02:49,117][com.huanletao.huanletao.mapper.WebGoodDescMapper.findPassGood]==>  Preparing: SELECT * FROM web_good_desc WHERE EXISTS( SELECT * FROM web_good WHERE web_good.`status`=1 AND web_good.`goodid` = web_good_desc.`goodid` ) LIMIT 20; 
+[DEBUG][2020-11-06 00:02:49,118][com.huanletao.huanletao.mapper.WebGoodDescMapper.findPassGood]==> Parameters: 
+[DEBUG][2020-11-06 00:02:49,201][com.huanletao.huanletao.mapper.WebGoodDescMapper.findPassGood]<==      Total: 20
+[DEBUG][2020-11-06 00:02:49,202][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@723ae928]
+[DEBUG][2020-11-06 00:02:49,202][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:02:49,203][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c6c81e1] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:02:49,204][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:02:49,204][com.huanletao.huanletao.mapper.WebGoodMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, goodid, userid, goodname, price, categoryid, status from web_good 
+[DEBUG][2020-11-06 00:02:49,205][com.huanletao.huanletao.mapper.WebGoodMapper.selectByExample]==> Parameters: 
+[DEBUG][2020-11-06 00:02:49,504][com.huanletao.huanletao.mapper.WebGoodMapper.selectByExample]<==      Total: 1900
+[DEBUG][2020-11-06 00:02:49,514][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c6c81e1]
+[DEBUG][2020-11-06 00:02:51,735][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:02:51,735][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59ac8de6] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:02:51,736][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:02:51,737][com.huanletao.huanletao.mapper.WebCategoryMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, categoryid, catename from web_category 
+[DEBUG][2020-11-06 00:02:51,738][com.huanletao.huanletao.mapper.WebCategoryMapper.selectByExample]==> Parameters: 
+[DEBUG][2020-11-06 00:02:51,745][com.huanletao.huanletao.mapper.WebCategoryMapper.selectByExample]<==      Total: 9
+[DEBUG][2020-11-06 00:02:51,746][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59ac8de6]
+[DEBUG][2020-11-06 00:02:56,874][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:02:56,875][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52360fc0] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:02:56,875][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:02:56,880][com.huanletao.huanletao.mapper.ScheduleJobMapper.getAll]==>  Preparing: select job_id, create_time, update_time, job_name, job_group, job_status, cron_expression, description, bean_class, is_concurrent, spring_id, method_name from task_schedule_job 
+[DEBUG][2020-11-06 00:02:56,905][com.huanletao.huanletao.mapper.ScheduleJobMapper.getAll]==> Parameters: 
+[DEBUG][2020-11-06 00:02:56,935][com.huanletao.huanletao.mapper.ScheduleJobMapper.getAll]<==      Total: 3
+[DEBUG][2020-11-06 00:02:56,942][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52360fc0]
+[DEBUG][2020-11-06 00:03:21,109][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:21,112][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e6840e5] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:03:21,113][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:03:21,118][com.huanletao.huanletao.mapper.SysUserMapper.findSysUserByUserCode]==>  Preparing: SELECT * FROM sys_user LEFT JOIN sys_role ON sys_user.role_id = sys_role.id where username = ? 
+[DEBUG][2020-11-06 00:03:21,122][com.huanletao.huanletao.mapper.SysUserMapper.findSysUserByUserCode]==> Parameters: admin(String)
+[DEBUG][2020-11-06 00:03:21,150][com.huanletao.huanletao.mapper.SysUserMapper.findSysUserByUserCode]<==      Total: 1
+[DEBUG][2020-11-06 00:03:21,152][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e6840e5]
+[DEBUG][2020-11-06 00:03:21,155][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:21,156][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@545e7d38] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:03:21,157][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:03:21,157][com.huanletao.huanletao.mapper.SysMenuMapper.findMenusByUser]==>  Preparing: SELECT * FROM sys_menu WHERE EXISTS ( SELECT * FROM sys_role LEFT JOIN sys_role_menu ON sys_role.id = sys_role_menu.role_id WHERE sys_menu.id = sys_role_menu.menu_id AND sys_role.id = ? ) 
+[DEBUG][2020-11-06 00:03:21,162][com.huanletao.huanletao.mapper.SysMenuMapper.findMenusByUser]==> Parameters: 1(Integer)
+[DEBUG][2020-11-06 00:03:21,184][com.huanletao.huanletao.mapper.SysMenuMapper.findMenusByUser]<==      Total: 4
+[DEBUG][2020-11-06 00:03:21,185][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@545e7d38]
+[DEBUG][2020-11-06 00:03:21,186][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:21,186][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68751332] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:03:21,187][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:03:21,188][com.huanletao.huanletao.mapper.SysPermissionsMapper.findPermissionByUser]==>  Preparing: SELECT * FROM sys_permissions WHERE EXISTS ( SELECT * FROM sys_role LEFT JOIN sys_role_permission ON sys_role.id = sys_role_permission.roleid WHERE sys_permissions.id = sys_role_permission.permissionid AND sys_role.id = ? ) 
+[DEBUG][2020-11-06 00:03:21,188][com.huanletao.huanletao.mapper.SysPermissionsMapper.findPermissionByUser]==> Parameters: 1(Integer)
+[DEBUG][2020-11-06 00:03:21,222][com.huanletao.huanletao.mapper.SysPermissionsMapper.findPermissionByUser]<==      Total: 3
+[DEBUG][2020-11-06 00:03:21,223][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68751332]
+[INFO][2020-11-06 00:03:32,259][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:03:32,260][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:32,260][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c86febf]
+[DEBUG][2020-11-06 00:03:32,369][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:32,370][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:03:32,371][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:03:32,390][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:03:32,395][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:03:32,396][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 0(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:03:32,403][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:03:32,404][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c86febf]
+[DEBUG][2020-11-06 00:03:32,406][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c86febf]
+[DEBUG][2020-11-06 00:03:32,407][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c86febf]
+[DEBUG][2020-11-06 00:03:32,407][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c86febf]
+[INFO][2020-11-06 00:03:32,511][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:03:32,512][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:32,512][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@507cd299]
+[DEBUG][2020-11-06 00:03:32,513][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:32,514][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:03:32,515][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:03:32,527][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:03:32,528][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:03:32,530][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 0(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:03:32,536][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:03:32,537][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@507cd299]
+[DEBUG][2020-11-06 00:03:32,538][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@507cd299]
+[DEBUG][2020-11-06 00:03:32,538][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@507cd299]
+[DEBUG][2020-11-06 00:03:32,538][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@507cd299]
+[DEBUG][2020-11-06 00:03:34,505][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:34,506][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30a6ede2]
+[DEBUG][2020-11-06 00:03:34,507][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:34,508][com.huanletao.huanletao.mapper.WebOrderMapper.findOrders]==>  Preparing: SELECT tbl_order.*,loginname sellername FROM web_user , (SELECT tblorder.*,web_user.`loginname` buyername FROM web_user, ( SELECT orderid,goodname,price,createdate,web_order.status,sellerid,buyerid FROM web_order,web_good WHERE web_order.`goodid`=web_good.`goodid` )AS tblorder WHERE tblorder.buyerid=web_user.`userid`) AS tbl_order WHERE web_user.`userid` = tbl_order.sellerid; 
+[DEBUG][2020-11-06 00:03:34,509][com.huanletao.huanletao.mapper.WebOrderMapper.findOrders]==> Parameters: 
+[DEBUG][2020-11-06 00:03:34,524][com.huanletao.huanletao.mapper.WebOrderMapper.findOrders]<==      Total: 0
+[DEBUG][2020-11-06 00:03:34,525][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30a6ede2]
+[DEBUG][2020-11-06 00:03:34,527][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30a6ede2]
+[DEBUG][2020-11-06 00:03:34,527][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30a6ede2]
+[DEBUG][2020-11-06 00:03:34,528][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30a6ede2]
+[INFO][2020-11-06 00:03:36,678][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:03:36,678][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:36,679][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6773128c]
+[DEBUG][2020-11-06 00:03:36,680][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:36,681][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:03:36,682][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:03:36,696][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:03:36,699][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:03:36,701][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 0(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:03:36,710][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:03:36,713][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6773128c]
+[DEBUG][2020-11-06 00:03:36,716][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6773128c]
+[DEBUG][2020-11-06 00:03:36,717][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6773128c]
+[DEBUG][2020-11-06 00:03:36,718][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6773128c]
+[INFO][2020-11-06 00:03:36,801][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:03:36,802][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:36,803][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@213c9ff6]
+[DEBUG][2020-11-06 00:03:36,803][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:36,804][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:03:36,805][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:03:36,815][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:03:36,895][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:03:36,896][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 0(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:03:36,902][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:03:36,903][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@213c9ff6]
+[DEBUG][2020-11-06 00:03:36,904][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@213c9ff6]
+[DEBUG][2020-11-06 00:03:36,905][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@213c9ff6]
+[DEBUG][2020-11-06 00:03:36,906][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@213c9ff6]
+[INFO][2020-11-06 00:03:41,321][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:03:41,322][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:41,323][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@133d56ff]
+[DEBUG][2020-11-06 00:03:41,324][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:41,325][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:03:41,326][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:03:41,335][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:03:41,336][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:03:41,336][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 30(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:03:41,342][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:03:41,342][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@133d56ff]
+[DEBUG][2020-11-06 00:03:41,343][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@133d56ff]
+[DEBUG][2020-11-06 00:03:41,343][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@133d56ff]
+[DEBUG][2020-11-06 00:03:41,343][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@133d56ff]
+[INFO][2020-11-06 00:03:42,769][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:03:42,769][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:42,770][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9a4dffd]
+[DEBUG][2020-11-06 00:03:42,771][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:42,772][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:03:42,772][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:03:42,780][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:03:42,781][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:03:42,782][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 40(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:03:42,788][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:03:42,788][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9a4dffd]
+[DEBUG][2020-11-06 00:03:42,789][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9a4dffd]
+[DEBUG][2020-11-06 00:03:42,790][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9a4dffd]
+[DEBUG][2020-11-06 00:03:42,790][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9a4dffd]
+[INFO][2020-11-06 00:03:44,241][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:03:44,242][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:44,243][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77e5caa5]
+[DEBUG][2020-11-06 00:03:44,244][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:44,245][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:03:44,246][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:03:44,255][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:03:44,257][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:03:44,259][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 20(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:03:44,264][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:03:44,265][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77e5caa5]
+[DEBUG][2020-11-06 00:03:44,265][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77e5caa5]
+[DEBUG][2020-11-06 00:03:44,266][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77e5caa5]
+[DEBUG][2020-11-06 00:03:44,266][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77e5caa5]
+[INFO][2020-11-06 00:03:44,885][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:03:44,885][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:44,886][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52d9db1a]
+[DEBUG][2020-11-06 00:03:44,887][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:44,887][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:03:44,888][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:03:44,897][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:03:44,898][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:03:44,899][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 40(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:03:44,904][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:03:44,905][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52d9db1a]
+[DEBUG][2020-11-06 00:03:44,906][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52d9db1a]
+[DEBUG][2020-11-06 00:03:44,907][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52d9db1a]
+[DEBUG][2020-11-06 00:03:44,908][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52d9db1a]
+[DEBUG][2020-11-06 00:03:59,915][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:03:59,916][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16129174]
+[DEBUG][2020-11-06 00:03:59,916][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:03:59,917][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, advertid, advertname, tarurl, picaddress, status from web_advert 
+[DEBUG][2020-11-06 00:03:59,918][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==> Parameters: 
+[DEBUG][2020-11-06 00:03:59,923][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]<==      Total: 5
+[DEBUG][2020-11-06 00:03:59,924][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16129174]
+[DEBUG][2020-11-06 00:03:59,925][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16129174]
+[DEBUG][2020-11-06 00:03:59,925][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16129174]
+[DEBUG][2020-11-06 00:03:59,926][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16129174]
+[DEBUG][2020-11-06 00:04:02,767][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:02,768][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20311d43]
+[DEBUG][2020-11-06 00:04:02,769][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@610c1778] will be managed by Spring
+[DEBUG][2020-11-06 00:04:02,772][com.huanletao.huanletao.mapper.WebOrderMapper.findOrders]==>  Preparing: SELECT tbl_order.*,loginname sellername FROM web_user , (SELECT tblorder.*,web_user.`loginname` buyername FROM web_user, ( SELECT orderid,goodname,price,createdate,web_order.status,sellerid,buyerid FROM web_order,web_good WHERE web_order.`goodid`=web_good.`goodid` )AS tblorder WHERE tblorder.buyerid=web_user.`userid`) AS tbl_order WHERE web_user.`userid` = tbl_order.sellerid; 
+[DEBUG][2020-11-06 00:04:02,775][com.huanletao.huanletao.mapper.WebOrderMapper.findOrders]==> Parameters: 
+[DEBUG][2020-11-06 00:04:02,786][com.huanletao.huanletao.mapper.WebOrderMapper.findOrders]<==      Total: 0
+[DEBUG][2020-11-06 00:04:02,787][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20311d43]
+[DEBUG][2020-11-06 00:04:02,788][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20311d43]
+[DEBUG][2020-11-06 00:04:02,788][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20311d43]
+[DEBUG][2020-11-06 00:04:02,789][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20311d43]
+[DEBUG][2020-11-06 00:04:03,482][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:03,482][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@100b56ad]
+[DEBUG][2020-11-06 00:04:03,483][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@610c1778] will be managed by Spring
+[DEBUG][2020-11-06 00:04:03,484][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, advertid, advertname, tarurl, picaddress, status from web_advert 
+[DEBUG][2020-11-06 00:04:03,485][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==> Parameters: 
+[DEBUG][2020-11-06 00:04:03,494][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]<==      Total: 5
+[DEBUG][2020-11-06 00:04:03,498][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@100b56ad]
+[DEBUG][2020-11-06 00:04:03,498][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@100b56ad]
+[DEBUG][2020-11-06 00:04:03,499][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@100b56ad]
+[DEBUG][2020-11-06 00:04:03,499][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@100b56ad]
+[DEBUG][2020-11-06 00:04:06,502][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:06,502][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54d92b65]
+[DEBUG][2020-11-06 00:04:06,503][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:04:06,504][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, advertid, advertname, tarurl, picaddress, status from web_advert 
+[DEBUG][2020-11-06 00:04:06,505][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]==> Parameters: 
+[DEBUG][2020-11-06 00:04:06,511][com.huanletao.huanletao.mapper.WebAdvertMapper.selectByExample]<==      Total: 5
+[DEBUG][2020-11-06 00:04:06,512][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54d92b65]
+[DEBUG][2020-11-06 00:04:06,513][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54d92b65]
+[DEBUG][2020-11-06 00:04:06,514][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54d92b65]
+[DEBUG][2020-11-06 00:04:06,515][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54d92b65]
+[DEBUG][2020-11-06 00:04:10,201][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:10,203][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27200886]
+[DEBUG][2020-11-06 00:04:10,205][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:04:10,205][com.huanletao.huanletao.mapper.WebOrderMapper.findOrders]==>  Preparing: SELECT tbl_order.*,loginname sellername FROM web_user , (SELECT tblorder.*,web_user.`loginname` buyername FROM web_user, ( SELECT orderid,goodname,price,createdate,web_order.status,sellerid,buyerid FROM web_order,web_good WHERE web_order.`goodid`=web_good.`goodid` )AS tblorder WHERE tblorder.buyerid=web_user.`userid`) AS tbl_order WHERE web_user.`userid` = tbl_order.sellerid; 
+[DEBUG][2020-11-06 00:04:10,206][com.huanletao.huanletao.mapper.WebOrderMapper.findOrders]==> Parameters: 
+[DEBUG][2020-11-06 00:04:10,210][com.huanletao.huanletao.mapper.WebOrderMapper.findOrders]<==      Total: 0
+[DEBUG][2020-11-06 00:04:10,211][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27200886]
+[DEBUG][2020-11-06 00:04:10,212][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27200886]
+[DEBUG][2020-11-06 00:04:10,212][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27200886]
+[DEBUG][2020-11-06 00:04:10,212][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27200886]
+[INFO][2020-11-06 00:04:11,738][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:04:11,739][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:11,739][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71d5668a]
+[DEBUG][2020-11-06 00:04:11,740][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:04:11,741][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:04:11,742][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:04:11,756][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:04:11,757][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:04:11,758][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 0(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:04:11,763][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:04:11,763][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71d5668a]
+[DEBUG][2020-11-06 00:04:11,764][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71d5668a]
+[DEBUG][2020-11-06 00:04:11,764][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71d5668a]
+[DEBUG][2020-11-06 00:04:11,764][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71d5668a]
+[INFO][2020-11-06 00:04:11,816][com.huanletao.huanletao.service.impl.GoodServiceimpl]wd = 
+[DEBUG][2020-11-06 00:04:11,816][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:11,817][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@529017d8]
+[DEBUG][2020-11-06 00:04:11,818][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:04:11,818][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==>  Preparing: SELECT count(*) FROM web_category, (SELECT web_good.*, web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid` = web_user.`userid`) AS good WHERE web_category.`categoryid` = good.categoryid AND good.goodname LIKE concat('%', ?, '%') 
+[DEBUG][2020-11-06 00:04:11,820][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]==> Parameters: (String)
+[DEBUG][2020-11-06 00:04:11,830][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper_Count]<==      Total: 1
+[DEBUG][2020-11-06 00:04:11,832][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==>  Preparing: SELECT * FROM web_category, (SELECT web_good.*,web_user.`loginname` username FROM web_good INNER JOIN web_user ON web_good.`userid`=web_user.`userid` ) AS good WHERE web_category.`categoryid`=good.categoryid and good.goodname like concat('%',?,'%') limit ?,? 
+[DEBUG][2020-11-06 00:04:11,833][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]==> Parameters: (String), 0(Integer), 10(Integer)
+[DEBUG][2020-11-06 00:04:11,838][com.huanletao.huanletao.mapper.WebGoodMapper.findGoodsAndUserCate_PageHelper]<==      Total: 10
+[DEBUG][2020-11-06 00:04:11,839][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@529017d8]
+[DEBUG][2020-11-06 00:04:11,840][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@529017d8]
+[DEBUG][2020-11-06 00:04:11,840][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@529017d8]
+[DEBUG][2020-11-06 00:04:11,841][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@529017d8]
+[INFO][2020-11-06 00:04:14,481][com.huanletao.huanletao.controller.AdminController]登出系统成功
+[DEBUG][2020-11-06 00:04:21,128][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:21,129][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d487a82] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:04:21,130][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:04:21,130][com.huanletao.huanletao.mapper.SysUserMapper.findSysUserByUserCode]==>  Preparing: SELECT * FROM sys_user LEFT JOIN sys_role ON sys_user.role_id = sys_role.id where username = ? 
+[DEBUG][2020-11-06 00:04:21,131][com.huanletao.huanletao.mapper.SysUserMapper.findSysUserByUserCode]==> Parameters: root(String)
+[DEBUG][2020-11-06 00:04:21,137][com.huanletao.huanletao.mapper.SysUserMapper.findSysUserByUserCode]<==      Total: 1
+[DEBUG][2020-11-06 00:04:21,138][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d487a82]
+[DEBUG][2020-11-06 00:04:21,138][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:21,139][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2dc644be] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:04:21,139][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:04:21,140][com.huanletao.huanletao.mapper.SysMenuMapper.findMenusByUser]==>  Preparing: SELECT * FROM sys_menu WHERE EXISTS ( SELECT * FROM sys_role LEFT JOIN sys_role_menu ON sys_role.id = sys_role_menu.role_id WHERE sys_menu.id = sys_role_menu.menu_id AND sys_role.id = ? ) 
+[DEBUG][2020-11-06 00:04:21,141][com.huanletao.huanletao.mapper.SysMenuMapper.findMenusByUser]==> Parameters: 2(Integer)
+[DEBUG][2020-11-06 00:04:21,146][com.huanletao.huanletao.mapper.SysMenuMapper.findMenusByUser]<==      Total: 5
+[DEBUG][2020-11-06 00:04:21,147][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2dc644be]
+[DEBUG][2020-11-06 00:04:21,147][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:21,148][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1848da06] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:04:21,149][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:04:21,149][com.huanletao.huanletao.mapper.SysPermissionsMapper.findPermissionByUser]==>  Preparing: SELECT * FROM sys_permissions WHERE EXISTS ( SELECT * FROM sys_role LEFT JOIN sys_role_permission ON sys_role.id = sys_role_permission.roleid WHERE sys_permissions.id = sys_role_permission.permissionid AND sys_role.id = ? ) 
+[DEBUG][2020-11-06 00:04:21,150][com.huanletao.huanletao.mapper.SysPermissionsMapper.findPermissionByUser]==> Parameters: 2(Integer)
+[DEBUG][2020-11-06 00:04:21,155][com.huanletao.huanletao.mapper.SysPermissionsMapper.findPermissionByUser]<==      Total: 0
+[DEBUG][2020-11-06 00:04:21,157][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1848da06]
+[DEBUG][2020-11-06 00:04:23,500][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:23,501][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50177e55]
+[DEBUG][2020-11-06 00:04:23,502][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:04:23,502][com.huanletao.huanletao.mapper.SysUserMapper.listSysUsers]==>  Preparing: select * from sys_user left join sys_role on sys_user.role_id = sys_role.id 
+[DEBUG][2020-11-06 00:04:23,503][com.huanletao.huanletao.mapper.SysUserMapper.listSysUsers]==> Parameters: 
+[DEBUG][2020-11-06 00:04:23,508][com.huanletao.huanletao.mapper.SysUserMapper.listSysUsers]<==      Total: 6
+[DEBUG][2020-11-06 00:04:23,509][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50177e55]
+[DEBUG][2020-11-06 00:04:23,510][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50177e55]
+[DEBUG][2020-11-06 00:04:23,510][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50177e55]
+[DEBUG][2020-11-06 00:04:23,510][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50177e55]
+[DEBUG][2020-11-06 00:04:23,518][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:23,519][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f8819ad]
+[DEBUG][2020-11-06 00:04:23,519][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@610c1778] will be managed by Spring
+[DEBUG][2020-11-06 00:04:23,520][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==>  Preparing: -- 查询角色拥有的菜单列表。 SELECT t1.id, t1.role_name, t3.id menu_id, t3.name, t3.html FROM sys_role AS t1 LEFT JOIN sys_role_menu AS t2 ON t1.id = t2.role_id LEFT JOIN sys_menu AS t3 ON t2.menu_id = t3.id 
+[DEBUG][2020-11-06 00:04:23,522][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==> Parameters: 
+[DEBUG][2020-11-06 00:04:23,541][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]<==      Total: 20
+[DEBUG][2020-11-06 00:04:23,542][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f8819ad]
+[DEBUG][2020-11-06 00:04:23,543][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f8819ad]
+[DEBUG][2020-11-06 00:04:23,543][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f8819ad]
+[DEBUG][2020-11-06 00:04:23,544][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f8819ad]
+[INFO][2020-11-06 00:04:23,548][com.huanletao.huanletao.controller.RoleController]查询结果为：==[SysRole{id=1, roleName='业务管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=2, roleName='系统管理员', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=7, name='菜单管理', html='menu.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}, SysMenu{id=9, name='系统邮箱', html='mail.html', type='null'}, SysMenu{id=1, name='用户管理', html='sysUser.html', type='null'}]}, SysRole{id=4, roleName='商品管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=3, roleName='权限管理员', sysMenuList=[SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}]}, SysRole{id=12, roleName='高工', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=14, roleName='dba', sysMenuList=[SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=13, roleName='初级工程师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}, SysRole{id=15, roleName='数据分析师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}]
+[DEBUG][2020-11-06 00:04:25,113][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:25,114][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25d29757] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:04:25,114][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@610c1778] will not be managed by Spring
+[DEBUG][2020-11-06 00:04:25,115][com.huanletao.huanletao.mapper.ScheduleJobMapper.getAll]==>  Preparing: select job_id, create_time, update_time, job_name, job_group, job_status, cron_expression, description, bean_class, is_concurrent, spring_id, method_name from task_schedule_job 
+[DEBUG][2020-11-06 00:04:25,116][com.huanletao.huanletao.mapper.ScheduleJobMapper.getAll]==> Parameters: 
+[DEBUG][2020-11-06 00:04:25,122][com.huanletao.huanletao.mapper.ScheduleJobMapper.getAll]<==      Total: 3
+[DEBUG][2020-11-06 00:04:25,123][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25d29757]
+[DEBUG][2020-11-06 00:04:26,765][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:26,767][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e340529]
+[DEBUG][2020-11-06 00:04:26,768][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@610c1778] will be managed by Spring
+[DEBUG][2020-11-06 00:04:26,769][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, id, name, html, type from sys_menu 
+[DEBUG][2020-11-06 00:04:26,770][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]==> Parameters: 
+[DEBUG][2020-11-06 00:04:26,773][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]<==      Total: 9
+[DEBUG][2020-11-06 00:04:26,775][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e340529]
+[DEBUG][2020-11-06 00:04:26,775][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e340529]
+[DEBUG][2020-11-06 00:04:26,776][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e340529]
+[DEBUG][2020-11-06 00:04:26,777][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e340529]
+[DEBUG][2020-11-06 00:04:30,349][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:30,349][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7aa7e6dc]
+[DEBUG][2020-11-06 00:04:30,350][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@610c1778] will be managed by Spring
+[DEBUG][2020-11-06 00:04:30,351][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, id, name, html, type from sys_menu 
+[DEBUG][2020-11-06 00:04:30,352][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]==> Parameters: 
+[DEBUG][2020-11-06 00:04:30,355][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]<==      Total: 9
+[DEBUG][2020-11-06 00:04:30,356][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7aa7e6dc]
+[DEBUG][2020-11-06 00:04:30,357][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7aa7e6dc]
+[DEBUG][2020-11-06 00:04:30,357][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7aa7e6dc]
+[DEBUG][2020-11-06 00:04:30,357][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7aa7e6dc]
+[DEBUG][2020-11-06 00:04:33,995][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:04:33,997][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c86301b]
+[DEBUG][2020-11-06 00:04:33,998][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@610c1778] will be managed by Spring
+[DEBUG][2020-11-06 00:04:33,999][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==>  Preparing: -- 查询角色拥有的菜单列表。 SELECT t1.id, t1.role_name, t3.id menu_id, t3.name, t3.html FROM sys_role AS t1 LEFT JOIN sys_role_menu AS t2 ON t1.id = t2.role_id LEFT JOIN sys_menu AS t3 ON t2.menu_id = t3.id 
+[DEBUG][2020-11-06 00:04:34,000][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==> Parameters: 
+[DEBUG][2020-11-06 00:04:34,007][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]<==      Total: 20
+[DEBUG][2020-11-06 00:04:34,008][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c86301b]
+[DEBUG][2020-11-06 00:04:34,009][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c86301b]
+[DEBUG][2020-11-06 00:04:34,010][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c86301b]
+[DEBUG][2020-11-06 00:04:34,010][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c86301b]
+[INFO][2020-11-06 00:04:34,015][com.huanletao.huanletao.controller.RoleController]查询结果为：==[SysRole{id=1, roleName='业务管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=2, roleName='系统管理员', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=7, name='菜单管理', html='menu.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}, SysMenu{id=9, name='系统邮箱', html='mail.html', type='null'}, SysMenu{id=1, name='用户管理', html='sysUser.html', type='null'}]}, SysRole{id=4, roleName='商品管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=3, roleName='权限管理员', sysMenuList=[SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}]}, SysRole{id=12, roleName='高工', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=14, roleName='dba', sysMenuList=[SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=13, roleName='初级工程师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}, SysRole{id=15, roleName='数据分析师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}]
+[DEBUG][2020-11-06 00:05:28,037][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:05:28,038][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33bbc546]
+[DEBUG][2020-11-06 00:05:28,038][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@610c1778] will be managed by Spring
+[DEBUG][2020-11-06 00:05:28,039][com.huanletao.huanletao.mapper.SysUserMapper.listSysUsers]==>  Preparing: select * from sys_user left join sys_role on sys_user.role_id = sys_role.id 
+[DEBUG][2020-11-06 00:05:28,041][com.huanletao.huanletao.mapper.SysUserMapper.listSysUsers]==> Parameters: 
+[DEBUG][2020-11-06 00:05:28,048][com.huanletao.huanletao.mapper.SysUserMapper.listSysUsers]<==      Total: 6
+[DEBUG][2020-11-06 00:05:28,049][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33bbc546]
+[DEBUG][2020-11-06 00:05:28,050][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33bbc546]
+[DEBUG][2020-11-06 00:05:28,051][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33bbc546]
+[DEBUG][2020-11-06 00:05:28,051][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33bbc546]
+[DEBUG][2020-11-06 00:05:28,076][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:05:28,078][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48a69577]
+[DEBUG][2020-11-06 00:05:28,078][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:05:28,079][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==>  Preparing: -- 查询角色拥有的菜单列表。 SELECT t1.id, t1.role_name, t3.id menu_id, t3.name, t3.html FROM sys_role AS t1 LEFT JOIN sys_role_menu AS t2 ON t1.id = t2.role_id LEFT JOIN sys_menu AS t3 ON t2.menu_id = t3.id 
+[DEBUG][2020-11-06 00:05:28,080][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==> Parameters: 
+[DEBUG][2020-11-06 00:05:28,085][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]<==      Total: 20
+[DEBUG][2020-11-06 00:05:28,086][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48a69577]
+[DEBUG][2020-11-06 00:05:28,087][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48a69577]
+[DEBUG][2020-11-06 00:05:28,087][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48a69577]
+[DEBUG][2020-11-06 00:05:28,088][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48a69577]
+[INFO][2020-11-06 00:05:28,098][com.huanletao.huanletao.controller.RoleController]查询结果为：==[SysRole{id=1, roleName='业务管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=2, roleName='系统管理员', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=7, name='菜单管理', html='menu.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}, SysMenu{id=9, name='系统邮箱', html='mail.html', type='null'}, SysMenu{id=1, name='用户管理', html='sysUser.html', type='null'}]}, SysRole{id=4, roleName='商品管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=3, roleName='权限管理员', sysMenuList=[SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}]}, SysRole{id=12, roleName='高工', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=14, roleName='dba', sysMenuList=[SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=13, roleName='初级工程师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}, SysRole{id=15, roleName='数据分析师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}]
+[DEBUG][2020-11-06 00:05:29,142][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:05:29,143][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4bacb931]
+[DEBUG][2020-11-06 00:05:29,144][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:05:29,145][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, id, name, html, type from sys_menu 
+[DEBUG][2020-11-06 00:05:29,146][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]==> Parameters: 
+[DEBUG][2020-11-06 00:05:29,152][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]<==      Total: 9
+[DEBUG][2020-11-06 00:05:29,153][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4bacb931]
+[DEBUG][2020-11-06 00:05:29,153][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4bacb931]
+[DEBUG][2020-11-06 00:05:29,154][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4bacb931]
+[DEBUG][2020-11-06 00:05:29,154][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4bacb931]
+[DEBUG][2020-11-06 00:05:30,088][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:05:30,089][org.mybatis.spring.SqlSessionUtils]SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cc9105] was not registered for synchronization because synchronization is not active
+[DEBUG][2020-11-06 00:05:30,089][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will not be managed by Spring
+[DEBUG][2020-11-06 00:05:30,090][com.huanletao.huanletao.mapper.ScheduleJobMapper.getAll]==>  Preparing: select job_id, create_time, update_time, job_name, job_group, job_status, cron_expression, description, bean_class, is_concurrent, spring_id, method_name from task_schedule_job 
+[DEBUG][2020-11-06 00:05:30,090][com.huanletao.huanletao.mapper.ScheduleJobMapper.getAll]==> Parameters: 
+[DEBUG][2020-11-06 00:05:30,096][com.huanletao.huanletao.mapper.ScheduleJobMapper.getAll]<==      Total: 3
+[DEBUG][2020-11-06 00:05:30,096][org.mybatis.spring.SqlSessionUtils]Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cc9105]
+[DEBUG][2020-11-06 00:05:33,292][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:05:33,293][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@58b950a8]
+[DEBUG][2020-11-06 00:05:33,294][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:05:33,295][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==>  Preparing: -- 查询角色拥有的菜单列表。 SELECT t1.id, t1.role_name, t3.id menu_id, t3.name, t3.html FROM sys_role AS t1 LEFT JOIN sys_role_menu AS t2 ON t1.id = t2.role_id LEFT JOIN sys_menu AS t3 ON t2.menu_id = t3.id 
+[DEBUG][2020-11-06 00:05:33,296][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==> Parameters: 
+[DEBUG][2020-11-06 00:05:33,303][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]<==      Total: 20
+[DEBUG][2020-11-06 00:05:33,303][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@58b950a8]
+[DEBUG][2020-11-06 00:05:33,304][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@58b950a8]
+[DEBUG][2020-11-06 00:05:33,304][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@58b950a8]
+[DEBUG][2020-11-06 00:05:33,305][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@58b950a8]
+[INFO][2020-11-06 00:05:33,312][com.huanletao.huanletao.controller.RoleController]查询结果为：==[SysRole{id=1, roleName='业务管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=2, roleName='系统管理员', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=7, name='菜单管理', html='menu.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}, SysMenu{id=9, name='系统邮箱', html='mail.html', type='null'}, SysMenu{id=1, name='用户管理', html='sysUser.html', type='null'}]}, SysRole{id=4, roleName='商品管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=3, roleName='权限管理员', sysMenuList=[SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}]}, SysRole{id=12, roleName='高工', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=14, roleName='dba', sysMenuList=[SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=13, roleName='初级工程师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}, SysRole{id=15, roleName='数据分析师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}]
+[DEBUG][2020-11-06 00:05:34,380][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:05:34,380][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53b43e72]
+[DEBUG][2020-11-06 00:05:34,381][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:05:34,382][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==>  Preparing: -- 查询角色拥有的菜单列表。 SELECT t1.id, t1.role_name, t3.id menu_id, t3.name, t3.html FROM sys_role AS t1 LEFT JOIN sys_role_menu AS t2 ON t1.id = t2.role_id LEFT JOIN sys_menu AS t3 ON t2.menu_id = t3.id 
+[DEBUG][2020-11-06 00:05:34,383][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==> Parameters: 
+[DEBUG][2020-11-06 00:05:34,388][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]<==      Total: 20
+[DEBUG][2020-11-06 00:05:34,391][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53b43e72]
+[DEBUG][2020-11-06 00:05:34,392][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53b43e72]
+[DEBUG][2020-11-06 00:05:34,392][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53b43e72]
+[DEBUG][2020-11-06 00:05:34,392][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53b43e72]
+[INFO][2020-11-06 00:05:34,399][com.huanletao.huanletao.controller.RoleController]查询结果为：==[SysRole{id=1, roleName='业务管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=2, roleName='系统管理员', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=7, name='菜单管理', html='menu.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}, SysMenu{id=9, name='系统邮箱', html='mail.html', type='null'}, SysMenu{id=1, name='用户管理', html='sysUser.html', type='null'}]}, SysRole{id=4, roleName='商品管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=3, roleName='权限管理员', sysMenuList=[SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}]}, SysRole{id=12, roleName='高工', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=14, roleName='dba', sysMenuList=[SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=13, roleName='初级工程师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}, SysRole{id=15, roleName='数据分析师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}]
+[DEBUG][2020-11-06 00:05:35,274][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:05:35,275][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28a98140]
+[DEBUG][2020-11-06 00:05:35,277][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:05:35,278][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]==>  Preparing: select 'true' as QUERYID, id, name, html, type from sys_menu 
+[DEBUG][2020-11-06 00:05:35,278][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]==> Parameters: 
+[DEBUG][2020-11-06 00:05:35,283][com.huanletao.huanletao.mapper.SysMenuMapper.selectByExample]<==      Total: 9
+[DEBUG][2020-11-06 00:05:35,284][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28a98140]
+[DEBUG][2020-11-06 00:05:35,284][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28a98140]
+[DEBUG][2020-11-06 00:05:35,285][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28a98140]
+[DEBUG][2020-11-06 00:05:35,285][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28a98140]
+[DEBUG][2020-11-06 00:14:52,424][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:14:52,426][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1518ba59]
+[DEBUG][2020-11-06 00:14:52,427][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@1642aeed] will be managed by Spring
+[DEBUG][2020-11-06 00:14:52,428][com.huanletao.huanletao.mapper.SysUserMapper.listSysUsers]==>  Preparing: select * from sys_user left join sys_role on sys_user.role_id = sys_role.id 
+[DEBUG][2020-11-06 00:14:52,428][org.mybatis.spring.SqlSessionUtils]Creating a new SqlSession
+[DEBUG][2020-11-06 00:14:52,429][com.huanletao.huanletao.mapper.SysUserMapper.listSysUsers]==> Parameters: 
+[DEBUG][2020-11-06 00:14:52,429][org.mybatis.spring.SqlSessionUtils]Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6146212]
+[DEBUG][2020-11-06 00:14:52,430][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.jdbc.JDBC4Connection@610c1778] will be managed by Spring
+[DEBUG][2020-11-06 00:14:52,431][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==>  Preparing: -- 查询角色拥有的菜单列表。 SELECT t1.id, t1.role_name, t3.id menu_id, t3.name, t3.html FROM sys_role AS t1 LEFT JOIN sys_role_menu AS t2 ON t1.id = t2.role_id LEFT JOIN sys_menu AS t3 ON t2.menu_id = t3.id 
+[DEBUG][2020-11-06 00:14:52,432][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]==> Parameters: 
+[DEBUG][2020-11-06 00:14:52,436][com.huanletao.huanletao.mapper.SysRoleMapper.listSysRolePermissions]<==      Total: 20
+[DEBUG][2020-11-06 00:14:52,437][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6146212]
+[DEBUG][2020-11-06 00:14:52,438][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6146212]
+[DEBUG][2020-11-06 00:14:52,438][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6146212]
+[DEBUG][2020-11-06 00:14:52,439][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6146212]
+[DEBUG][2020-11-06 00:14:52,442][com.huanletao.huanletao.mapper.SysUserMapper.listSysUsers]<==      Total: 6
+[DEBUG][2020-11-06 00:14:52,443][org.mybatis.spring.SqlSessionUtils]Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1518ba59]
+[DEBUG][2020-11-06 00:14:52,443][org.mybatis.spring.SqlSessionUtils]Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1518ba59]
+[DEBUG][2020-11-06 00:14:52,444][org.mybatis.spring.SqlSessionUtils]Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1518ba59]
+[DEBUG][2020-11-06 00:14:52,444][org.mybatis.spring.SqlSessionUtils]Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1518ba59]
+[INFO][2020-11-06 00:14:52,455][com.huanletao.huanletao.controller.RoleController]查询结果为：==[SysRole{id=1, roleName='业务管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=2, roleName='系统管理员', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=7, name='菜单管理', html='menu.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}, SysMenu{id=9, name='系统邮箱', html='mail.html', type='null'}, SysMenu{id=1, name='用户管理', html='sysUser.html', type='null'}]}, SysRole{id=4, roleName='商品管理员', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=3, roleName='权限管理员', sysMenuList=[SysMenu{id=5, name='广告管理', html='advert.html', type='null'}, SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}, SysMenu{id=6, name='分类管理', html='category.html', type='null'}, SysMenu{id=2, name='商品审核', html='goods.html', type='null'}, SysMenu{id=4, name='定时任务', html='job.html', type='null'}, SysMenu{id=8, name='权限管理', html='permission.html', type='null'}]}, SysRole{id=12, roleName='高工', sysMenuList=[SysMenu{id=3, name='订单管理', html='Orders.html', type='null'}]}, SysRole{id=14, roleName='dba', sysMenuList=[SysMenu{id=6, name='分类管理', html='category.html', type='null'}]}, SysRole{id=13, roleName='初级工程师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}, SysRole{id=15, roleName='数据分析师', sysMenuList=[SysMenu{id=4, name='定时任务', html='job.html', type='null'}]}]

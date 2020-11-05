@@ -2,8 +2,9 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.WebComment;
 import com.huanletao.huanletao.entity.WebCommentExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface WebCommentMapper {
     int countByExample(WebCommentExample example);

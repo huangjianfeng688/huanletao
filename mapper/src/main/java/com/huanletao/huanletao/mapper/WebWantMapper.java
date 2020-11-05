@@ -2,8 +2,9 @@ package com.huanletao.huanletao.mapper;
 
 import com.huanletao.huanletao.entity.WebWant;
 import com.huanletao.huanletao.entity.WebWantExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface WebWantMapper {
     int countByExample(WebWantExample example);
