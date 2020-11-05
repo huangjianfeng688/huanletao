@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huanletao.huanletao.mapper.WebGoodMapper" >
+  <resultMap id="BaseResultMap" type="com.huanletao.huanletao.entity.WebGood" >
+    <id column="goodid" property="goodid" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="goodname" property="goodname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="categoryid" property="categoryid" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="catename" property="catename" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <!--添加一个商品信息，同时生成逐渐策略-->
+  <insert id="addGood" parameterType="com.huanletao.huanletao.entity.WebGood"
+          useGeneratedKeys="true" keyProperty="goodid">
+    insert into web_good (goodid, userid, goodname,
+    price, categoryid, status
+    )
+    values (#{goodid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{goodname,jdbcType=VARCHAR},
+    #{price,jdbcType=DECIMAL}, #{categoryid,jdbcType=INTEGER}, #{status,jdbcType=CHAR}
+    )
+    <selectKey resultType="int" keyProperty="goodid">
+      SELECT LAST_INSERT_ID() AS ID
+    </selectKey>
+  </insert>
+
+  <!--查询商品信息，用户信息，关联的分类信息，-->
+  <select id="findGoodsAndUserCate" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT * FROM web_category,
+    (SELECT web_good.*,web_user.`loginname` username FROM web_good
+    INNER JOIN web_user ON web_good.`userid`=web_user.`userid`
+    ) AS good WHERE web_category.`categoryid`=good.categoryid
+      and good.goodname like concat('%',#{wd},'%')
+  </select>
+
+  <!--查询当前登录用户的商品信息，-->
+  <select id="findMyGoodByUserCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+   -- 根据当前的登录的用户名查询商品信息，
+    -- 主查询查询商品信息。
+    SELECT * FROM web_good LEFT JOIN web_category
+    ON web_good.`categoryid`=web_category.`categoryid` WHERE userid=(
+    SELECT userid FROM web_user WHERE web_user.`loginname`=#{loginname})
+  </select>
+
+
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    goodid, userid, goodname, price, categoryid, status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.huanletao.huanletao.entity.WebGoodExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from web_good
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from web_good
+    where goodid = #{goodid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from web_good
+    where goodid = #{goodid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.huanletao.huanletao.entity.WebGoodExample" >
+    delete from web_good
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.huanletao.huanletao.entity.WebGood" >
+    insert into web_good (goodid, userid, goodname, 
+      price, categoryid, status
+      )
+    values (#{goodid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{goodname,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{categoryid,jdbcType=INTEGER}, #{status,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huanletao.huanletao.entity.WebGood" >
+    insert into web_good
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodid != null" >
+        goodid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="goodname != null" >
+        goodname,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="categoryid != null" >
+        categoryid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodid != null" >
+        #{goodid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="goodname != null" >
+        #{goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryid != null" >
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.huanletao.huanletao.entity.WebGoodExample" resultType="java.lang.Integer" >
+    select count(*) from web_good
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update web_good
+    <set >
+      <if test="record.goodid != null" >
+        goodid = #{record.goodid,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodname != null" >
+        goodname = #{record.goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.categoryid != null" >
+        categoryid = #{record.categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update web_good
+    set goodid = #{record.goodid,jdbcType=INTEGER},
+      userid = #{record.userid,jdbcType=INTEGER},
+      goodname = #{record.goodname,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      categoryid = #{record.categoryid,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huanletao.huanletao.entity.WebGood" >
+    update web_good
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="goodname != null" >
+        goodname = #{goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryid != null" >
+        categoryid = #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+    </set>
+    where goodid = #{goodid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huanletao.huanletao.entity.WebGood" >
+    update web_good
+    set userid = #{userid,jdbcType=INTEGER},
+      goodname = #{goodname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      categoryid = #{categoryid,jdbcType=INTEGER},
+      status = #{status,jdbcType=CHAR}
+    where goodid = #{goodid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢乐淘后台</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/plugins/angularjs/pagination.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/base_pagination.js"></script>
+    <script src="/static/js/services/adminService.js"></script>
+    <script src="/static/js/services/userService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/adminController.js"></script>
+    <script src="/static/js/controller/loginController.js"></script>
+</head>
+<body ng-app="huanletao" ng-controller="loginController">
+
+<!--导航栏-->
+<nav class="navbar navbar-default" style="background: #00e765">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html">欢乐淘</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../regsiter.html">注册</a></li>
+            <li><a href="../login.html">登录</a></li>
+            <li><a href="../personal.html">个人中心</a></li>
+            <li><a href="login.html">后台管理</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div id="myCarousel" class="carousel slide " style="height: 400px" data-ride="carousel">
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="/static/image/login/login3.jpg" style="width: 100% ;height: 600px" alt="First slide">
+
+            </div>
+            <div class="item">
+                <img src="/static/image/login/login2.jpg" style="width: 100% ;height: 600px" alt="Second slide">
+            </div>
+            <div class="item">
+                <img src="/static/image/login/login.jpg" style="width: 100% ;height: 600px" alt="Second slide">
+            </div>
+        </div>
+
+
+        <!-- 轮播（Carousel）导航 -->
+        <div class="text-center carousel-control" href="#myCarousel" style="margin-top: 160px;margin-left: 350px ;width: 520px">
+
+            <div class="row" style="width: 560px">
+
+
+                <h2 style="position: relative;right: 60px">后台登录</h2>
+                <form action="#" method="get" class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">用户名</label>
+                        <div class="col-md-6">
+                            <input type="text" ng-model="username" value="" class="form-control " placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="control-label col-md-2">密码</label>
+                        <div class="col-md-6">
+                            <input type="password" ng-model="password" value="" class="form-control" placeholder="请输入密码">
+                        </div>
+                    </div>
+
+                    <div class="form-group " style="position: relative;left: 112px;width: 260px">
+                        <input type="button" ng-click="login()" class="btn btn-primary btn-block" value="登陆"/>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

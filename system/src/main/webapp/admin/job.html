@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugins/angularjs/pagination.css">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/angularjs/angular.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/services/jobService.js"></script>
+    <script src="/static/js/services/userService.js"></script>
+    <script src="/static/js/controller/baseController.js"></script>
+    <script src="/static/js/controller/jobController.js"></script>
+</head>
+<body ng-app="huanletao" ng-controller="jobController" ng-init="findAll()">
+<div  class="container" style="width: 100%;margin-top: 12px">
+    <div class="row">
+        <form action="#" class="form-inline" role="form">
+            <div class="form-group">
+                <a href="#" class="btn btn-success" data-toggle="modal" ng-click="entity={}" data-target="#jobModal">添加</a>
+                <a href="#" class="btn btn-danger" ng-click="deleteCate()">删除</a>
+            </div>
+        </form>
+
+    </div>
+    <div class="row" style="margin-top: 12px">
+        <table class="table table-condensed table-hover table-bordered text-center">
+            <tr>
+                <th class="text-center">
+                    <input type="checkbox">全选
+                </th>
+                <th class="text-center">序号</th>
+                <th class="text-center">任务名称</th>
+                <th class="text-center">组名称</th>
+                <th class="text-center">任务状态</th>
+                <th class="text-center">cron表达式</th>
+                <th class="text-center">任务描述</th>
+                <th class="text-center">调用目标类</th>
+                <th class="text-center">任务当前状态</th>
+                <th class="text-center">调用的spring容器的类</th>
+                <th class="text-center">方法名称</th>
+                <th class="text-center">操作</th>
+            </tr>
+            <tr ng-repeat="job in jobList">
+                <td>
+                    <input type="checkbox" ng-click="updateSelection($event,job.jobId)">
+                </td>
+                <td>{{job.jobId}}</td>
+                <td>{{job.jobName}}</td>
+                <td>{{job.jobGroup}}</td>
+                <td>{{job.jobStatus}}</td>
+                <td>{{job.cronExpression}}</td>
+                <td>{{job.description}}</td>
+                <td>{{job.beanClass}}</td>
+                <td>{{job.isConcurrent}}</td>
+                <td>{{job.springId}}</td>
+                <td>{{job.methodName}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="updateJobUI(job)" data-toggle="modal" data-target="#jobModal">修改</button>
+                    <button class="btn btn-primary" ng-click="run(job)">执行一次</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!--模态框，添加与修改任务信息信息-->
+<div class="modal fade" id="jobModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="categoryModalLabel">任务信息</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="jobName" class="control-label col-md-3">任务名称</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.jobName" id="jobName" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobGroup" class="control-label col-md-3">任务组名</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.jobGroup" id="jobGroup" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobStatus" class="control-label col-md-3">任务状态</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.jobStatus" id="jobStatus" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cronExpression" class="control-label col-md-3">cron 表达式</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.cronExpression" id="cronExpression" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="control-label col-md-3">任务描述</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.description" id="description" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="beanClass" class="control-label col-md-3">调用的目标类</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.beanClass" id="beanClass" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="isConcurrent" class="control-label col-md-3">当前状态</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.isConcurrent" id="isConcurrent" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="springId" class="control-label col-md-3">spring容器中的bean</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.springId" id="springId" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="methodName" class="control-label col-md-3">方法名称</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="entity.methodName" id="methodName" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" ng-model="entity.categoryid">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-click="save()">提交保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
